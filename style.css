@@ -1,0 +1,176 @@
+body
+{
+	 
+    background-color: #D7DADB;
+    font-family: 'Adobe Garamond Pro Bold Italic', Georgia, Times New Roman;
+    font-size: 0.9em;
+}
+    
+
+
+}
+
+
+
+#bloc_page
+{
+    width:100%;
+    margin:auto; 
+    padding:0px;
+}
+
+#banniere
+{
+	
+    height: 450px;
+    
+    background: url('rainbow.jpg') no-repeat;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    
+    width:100%;
+    background-size:100% ;
+    color:white;
+    padding-bottom:20px;
+    font-size: small;
+
+}
+nav
+{
+	
+	background-color: black;
+	width:100%;
+	display: flex;
+	justify-content: space-between;
+	padding-top:15px;
+	
+	
+}
+nav p
+{
+	
+    display: flex;
+    height:50px;
+    padding-top:20px;
+    color:white;
+   
+   
+   
+}
+nav a:hover
+{
+	color:red;
+
+}
+
+nav a
+{
+	color:white;
+}
+#start
+{
+	text-align: center;
+	margin-bottom:75px;
+	margin-top:75px;
+}
+#billets
+{
+	box-shadow: 0px 4px 4px #1c1a19;
+	width:70%;
+	margin:auto;
+	height:150px;
+	background-color: white;
+	
+
+	
+}
+
+#btitle
+{
+	text-align: center;
+	background-color:#0381AB;
+	color:white;
+	font-size: small;
+
+}
+
+
+footer 
+{
+	text-align: center;
+	background-color: black;
+	color:white;
+	font-family: 'Adobe Garamond Pro Bold Italic', Georgia, Times New Roman;
+    
+}
+
+footer h3, p
+{
+	font-size: small;
+	font-family: 'Adobe Garamond Pro Bold Italic', Georgia, Times New Roman;
+
+}
+.social img
+{
+	width:50px;
+	height:50px;
+
+}
+.social
+{
+	display: flex;
+	justify-content: center;
+
+	
+
+	width : 100%;
+	padding-right: 1%;
+}
+
+#bottom
+{
+	display:flex;
+	
+
+}
+#infos 
+{
+	width: 40%;
+	
+	display:flex;
+}
+#infos p
+{
+	padding-top:5px;
+}
+#infos h3
+{
+	text-decoration: underline;
+}
+#logo img
+{
+	width:150px;
+	height:50px;
+}
+#logo
+{
+	display:flex;
+	border-left:1px solid black;
+	border-bottom:none;
+	border-right:none;
+	width: 30%;
+	margin-bottom:35px;
+
+
+}
+#logo p 
+{
+	padding-bottom:10px;
+
+}
+#final
+{
+	border:2px solid white;
+	background-color: white;
+	color:black;
+}

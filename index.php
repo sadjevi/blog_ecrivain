@@ -47,12 +47,18 @@
 
 
 		<?php
-		//connexion à la base de données
+	
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
+		}
+		catch(Exception $e)
+		{
+		        die('Erreur : '.$e->getMessage());
+		}
 
-		$bdd = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
 		$req = $bdd->query('SELECT * FROM billets');
-		while ($billets = $req->fetch())
-			
+		while ($billets = $req->fetch())				
 		{
 		?>
 			<div id="billets">
@@ -68,7 +74,7 @@
 				</div>
 			</div>
 		<?php
-		} // Fin de la boucle des billets
+		} 
 		$req->closeCursor();
 		?>
 

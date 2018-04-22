@@ -93,6 +93,10 @@ nav a
 	font-size: small;
 
 }
+#posts em
+{
+	text-align: center;
+}
 
 
 footer 

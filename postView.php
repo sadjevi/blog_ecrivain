@@ -1,6 +1,6 @@
-<?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
+<?php $title = 'mes posts'; ?><!-- sheet title here -->
 
-<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
+<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
 
 		<div id="bloc_page">
@@ -25,45 +25,40 @@
 					<p><a href="#">Selection</a></p>
 					<p><a href="#">Recherche</a></p>
 					<p><a href="#">Mentions légales</a></p>
-					
+
 				</nav>
 			</header>
-				<div id="start">
 
-					<h2>Carnet de voyages</h2>
-					<p>
-					vous retrouverez ici mes différents posts òu je fais part de mon séjour,<br/> 
-					j'essayerais d'en mettre un petit peu tout les jours<br/>
-					surtout n'oubliez pas d'aller faire un tour sur les réseaux <br/>
-					j'y suis aussi......;)
-					</p>
-				</div>
+				<p><a href="index.php">Retour à la liste des billets</a></p>
 
-
-				<?php
-
-				while ($data = $posts->fetch())
-				{
-				?>
-			
 					<div id="billets">
 						<div id="btitle">
 							<h3>
-							<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
+							<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
 							</h3>
 						</div>
 						<div id="posts"
 							<p>
-							<?= htmlspecialchars($data['post']); ?><br/> 
-							<em><a href="post.php?id=<?= $data['id']; ?>">Commentaires</a></em>
-							</p>
+							<?= htmlspecialchars($post['post']); ?><br/> 
+
 						</div>
-						
 					</div>
-			<?php
-        }
-        $posts->closeCursor();
-        ?>
+					<div id='comments'>
+						<h3>Commentaires></h3>
+					<?php
+
+					while($comment = $comments->fetch())
+					{
+					?>
+					
+						</p>
+						<strong> le <?= $comment['created_date_fr']; ?></strong><br/>
+						<?= htmlspecialchars($comment['content']); ?><br/> 
+					<?php
+					}
+					?>
+					</div>
+
 
 			<footer>
 				<div id="foot">
@@ -97,10 +92,8 @@
 
 			</footer>
 		</div>
-
+		
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
-<?php require('template.php'); ?> <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
-
-		
+<?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->

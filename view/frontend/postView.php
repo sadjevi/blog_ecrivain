@@ -72,22 +72,22 @@
 						</div> 
 						<div class="social">
 
-							<p><img src="facebook.png" alt="Photo de montagne" />Facebook</p>
-							<p><img src="insta.png" alt="Photo de montagne" />Instagram</p>
-							<p><img src="twitter.png" alt="Photo de montagne" />twitter</p>
-							<p><img src="google.png" alt="Photo de montagne" />Google +</p>
+							<p><img src="public/images/facebook.png" alt="facebook" />Facebook</p>
+							<p><img src="public/images/insta.png" alt="insta" />Instagram</p>
+							<p><img src="public/images/twitter.png" alt="twitter" />twitter</p>
+							<p><img src="public/images/google.png" alt="google" />Google +</p>
 									
 						</div>
 						<div id="logo">
 							<h3>Built by:</h3>
-							<p><img src="logo_digitalizer.png" alt="Photo de montagne" /></p>
+							<p><img src="public/images/logo_digitalizer.png" alt="Photo de montagne" /></p>
 						</div>
 
 					</div>
 					 
 				</div>
 				<div id="final">
-					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI  LE BLOG DE  – ALL RIGHTS RESERVED – CREDITS</p>
+					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
 				</div>
 
 			</footer>
@@ -97,3 +97,5 @@
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
 <?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+
+

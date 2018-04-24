@@ -1,3 +1,6 @@
+
+
+
 body
 {
 	 
@@ -6,12 +9,6 @@ body
     font-size: 0.9em;
 }
     
-
-
-}
-
-
-
 #bloc_page
 {
     width:100%;
@@ -24,7 +21,7 @@ body
 	
     height: 450px;
     
-    background: url('rainbow.jpg') no-repeat;
+    background: url('https://cdn.pixabay.com/photo/2016/08/26/17/27/rainbow-1622730__340.jpg') no-repeat;
     position: relative;
     box-shadow: 0px 4px 4px #1c1a19;
     

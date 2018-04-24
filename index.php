@@ -1,6 +1,6 @@
 <?php
 
-require('controller.php'); //loading 'controller.php' file to store functions in memory
+require('controller/frontend.php'); //loading 'controller.php' file to store functions in memory
 
 
 if(isset($_GET['action'])) // test of 'action' parameter,to know which one of controllers have to be called

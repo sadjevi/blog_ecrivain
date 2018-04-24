@@ -1,16 +1,8 @@
+<?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
 
-<!--affichage-->
+<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-    <title>le-blog-de-l'ecrivain</title>
-    
-</head>
 
-	<body>
 		<div id="bloc_page">
 			<header>
 				<div id="titre principal">
@@ -50,27 +42,28 @@
 
 				<?php
 
-				while ($billets = $req->fetch())
+				while ($data = $posts->fetch())
 				{
 				?>
 			
 					<div id="billets">
 						<div id="btitle">
 							<h3>
-							<?php echo htmlspecialchars($billets['titre']); ?><em> le <?php echo $billets['date_creation_fr']; ?></em>
+							<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
 							</h3>
 						</div>
 						<div id="posts"
 							<p>
-							<?php echo htmlspecialchars($billets['billet']); ?><br/> 
-							<em><a href="#">Commentaires</a></em>
+							<?= htmlspecialchars($data['post']); ?><br/> 
+							<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 							</p>
 						</div>
+						
 					</div>
 			<?php
-				} 
-			$req->closeCursor();
-			?>
+        }
+        $posts->closeCursor();
+        ?>
 
 			<footer>
 				<div id="foot">
@@ -84,28 +77,30 @@
 						</div> 
 						<div class="social">
 
-							<p><img src="facebook.png" alt="Photo de montagne" />Facebook</p>
-							<p><img src="insta.png" alt="Photo de montagne" />Instagram</p>
-							<p><img src="twitter.png" alt="Photo de montagne" />twitter</p>
-							<p><img src="google.png" alt="Photo de montagne" />Google +</p>
+							<p><img src="public/images/facebook.png" alt="facebook" />Facebook</p>
+							<p><img src="public/images/insta.png" alt="insta" />Instagram</p>
+							<p><img src="public/images/twitter.png" alt="twitter" />twitter</p>
+							<p><img src="public/images/google.png" alt="google" />Google +</p>
 									
 						</div>
 						<div id="logo">
 							<h3>Built by:</h3>
-							<p><img src="logo_digitalizer.png" alt="Photo de montagne" /></p>
+							<p><img src="public/images/logo_digitalizer.png" alt="Photo de montagne" /></p>
 						</div>
 
 					</div>
 					 
 				</div>
 				<div id="final">
-					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI  LE BLOG DE  – ALL RIGHTS RESERVED – CREDITS</p>
+					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
 				</div>
 
 			</footer>
 		</div>
 
-		
 
-	</body>
-</html>
+<?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
+
+<?php require('template.php'); ?> <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+
+		

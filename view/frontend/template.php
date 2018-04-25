@@ -9,8 +9,68 @@
 </head>
 
 	<body>
+
+		<div id="bloc_page">
+			<header>
+				<div id="titre principal">
+					<div id="banniere">
+						<div id="">
+	                        <img src="" alt="" />   
+	                    </div>
+	                    <div id="titre2">
+							<h1>UN BILLET SIMPLE POUR L'ALASKA</h1>
+							<h2>by Jean Forteroche</h2>
+						</div>
+					</div>
+				</div>
+
+
+				<nav>
+					
+					<p><a href="#">Accueil</a></p>
+					<p><a href="#">Jean FORTEROCHE</a></p>
+					<p><a href="#">Selection</a></p>
+					<p><a href="#">Recherche</a></p>
+					<p><a href="#">Mentions légales</a></p>
+
+				</nav>
+			</header>
+
 		
-		<?= $content; ?>  <!-- content here -->
+			<?= $content; ?>  <!-- content here -->
+
+			<footer>
+				<div id="foot">
+					<div id="ftitle">
+						<h3>FIND ME ELSEWHERE</h3>
+					</div>
+					<div id="bottom">
+						<div id="infos">
+							<h3>Infos:</h3>
+							<p>Le Blog  de l'écrivain 'by Jean Forteroche' est un projet réalisé dans le cadre d'une formation OpenClassrooms</p>
+						</div> 
+						<div class="social">
+
+							<p><img src="public/images/facebook.png" alt="facebook" />Facebook</p>
+							<p><img src="public/images/insta.png" alt="insta" />Instagram</p>
+							<p><img src="public/images/twitter.png" alt="twitter" />twitter</p>
+							<p><img src="public/images/google.png" alt="google" />Google +</p>
+									
+						</div>
+						<div id="logo">
+							<h3>Built by:</h3>
+							<p><img src="public/images/logo_digitalizer.png" alt="digitalizer" /></p>
+						</div>
+
+					</div>
+					 
+				</div>
+				<div id="final">
+					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
+				</div>
+
+			</footer>
+		</div>
 		
 	</body>
 </html>

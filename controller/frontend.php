@@ -49,9 +49,9 @@ class Frontend
 	{
 		//$affectedlines = addcomment($postid, $author, $content);
 		$commentManager = new CommentManager();
-		$affectedlines  = $commentManager->addComment($postid, $author, $content);
+		$affectedLines  = $commentManager->addComment($postid, $author, $content);
 
-		if ($affectedlines === false)
+		if ($affectedLines === false)
 		{
 			die('impossible d ajouter votre commentaire');
 		}
@@ -60,5 +60,28 @@ class Frontend
 		{
 			header('location: index.php?action=post&id=' . $postid);
 		}
-	}	
+	}
+
+	/**
+	*
+	* method to write a new post
+	*@params $title,$post 
+	*/
+
+	public function newPost($title, $post)
+	{
+		$postManager   = new PostManager();
+		$affectedLines = $postManager->addPost($title, $post);
+
+		if ($affectedLines === false)
+		{
+			die('impossible d ajouter votre nouveau billet');
+		}
+		else
+
+		{
+			header('location: index.php?');
+		}
+	}
+
 }

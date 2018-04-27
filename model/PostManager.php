@@ -35,6 +35,22 @@ class PostManager
 		
 	}
 
+	public function addPost($title, $post)
+		/**
+		*
+		* method to add new postt 
+		*@params  $title & $post 
+		*/
+
+		{
+			$db            = $this->dbConnect();
+			$newpost       = $db->prepare('INSERT INTO posts(title, post, creation_date) VALUES (?, ?, NOW())');
+			$affectedLines = $newpost->execute(array($title, $post));
+
+			return $affectedLines;
+		}
+
+	
 
 	private function dbConnect()
 	/**

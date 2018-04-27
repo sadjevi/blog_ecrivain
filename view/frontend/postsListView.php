@@ -15,6 +15,9 @@
 </div>
 
 
+<p><a href="addComment.php">Nouveau billet</a></p>
+
+
 		
 
 <?php while ($data = $posts->fetch()): ?>

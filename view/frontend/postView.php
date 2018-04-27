@@ -26,7 +26,7 @@
 		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
 
 		   	<div id=formtitle>
-		    	<legend>Ajouter un commentaire</legend> <!-- Titre du fieldset --> 
+		    	<legend>Ajouter un commentaire</legend> 
 		    </div>
 
 		    <div id=author>

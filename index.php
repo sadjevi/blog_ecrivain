@@ -19,7 +19,7 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise erroe message shown
+			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
 		}
 	}
 	elseif($_GET['action'] == 'postComment')
@@ -39,6 +39,19 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		{
 			echo 'Erreur: aucun identifiant de billet  envoyé';
 		}
+	}
+	elseif($_GET['action'] == 'newPost')
+	{
+
+		if(!empty ($_POST['title']) && !empty ($_POST['post']))
+		{
+			$controller->newPost($_POST['title'], $_POST['post']);
+		}
+		else
+		{
+			echo 'erreur le billet n a pu être enregistré';
+		}
+	
 	}
 }
 else

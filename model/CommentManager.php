@@ -27,7 +27,7 @@ class CommentManager
 		{
 			$db            = $this->dbConnect();
 			$comment       = $db->prepare('INSERT INTO comments(post_id, author, content, created_date) VALUES (?, ?, ?, NOW())');
-			$affectedlines = $comment->execute(array($postid, $author, $content));
+			$affectedLines = $comment->execute(array($postid, $author, $content));
 
 			return $affectedLines;
 		}

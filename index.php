@@ -22,6 +22,17 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
 		}
 	}
+	elseif($_GET['action'] =='npost') //'post' controller is called 
+	{
+		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+		{
+			$controller->npost($_GET['id']); // if everything is ok --> execution of function 'post'
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
+		}
+	}
 	elseif($_GET['action'] == 'postComment')
 	{
 		if(isset($_GET['id']) && $_GET['id'] > 0)
@@ -53,6 +64,26 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		}
 	
 	}
+	elseif($_GET['action'] =='adjustPost')
+		{
+			if(isset($_GET['id']) && $_GET['id'] > 0)
+			{
+				
+				if(!empty ($_POST['title']) && !empty ($_POST['post']))
+				{	
+					
+					$controller->adjustPost($_GET['id'] ,$_POST['title'], $_POST['post']);
+				}
+				else
+				{
+					echo ' erreur;le billet n a pu être modifié';
+				}
+			}
+			else
+			{
+				echo 'erreur: aucun identifiant de billet envoyé';
+			}
+		}
 }
 else
 {

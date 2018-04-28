@@ -50,6 +50,35 @@ class PostManager
 			return $affectedLines;
 		}
 
+	public function updatePost($id, $title, $post)
+		/**
+		*
+		* method to update post
+		*@params $id, $title & $cpost 
+		*/
+
+		{
+			$db            = $this->dbConnect();
+			$updatedPost   = $db->prepare('UPDATE posts SET id = ?, title = ?, post = ?');
+			$affectedLines = $updatedPost->execute(array($id, $title, $post));
+
+			return $affectedLines;
+		}
+
+	public function deletePost($id)
+	/**
+		*
+		* method to delete post
+		*@params $id 
+		*/
+	{
+		$db            = $this->dbConnect();
+		$erasedPost    = $db->prepare('DELETE from posts WHERE id = ?');
+		$affectedLines = $erasedPost->execute(array($id));
+
+		return $affectedLines;
+	}
+
 	
 
 	private function dbConnect()

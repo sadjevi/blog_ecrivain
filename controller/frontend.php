@@ -17,7 +17,7 @@ class Frontend
 		//$posts = getposts();	
 		$postManager = new PostManager();
 		$posts       = $postManager->getPosts();		
-		require ('view/frontend/postsListView.php');
+		require  ('view/frontend/postsListView.php');
 
 	}
 
@@ -36,7 +36,18 @@ class Frontend
 		$post           = $postManager->getPost($id);
 		$comments       = $commentManager->getComments($id);
 
-		require('view/frontend/postView.php');
+		require_once('view/frontend/postView.php');
+	}
+
+	public function npost($id)
+	{
+		//$post = getpost($id);
+		//$comments = getcomments($id);
+		$postManager    = new PostManager();
+		$post           = $postManager->getPost($id);
+		
+
+		require_once('view/frontend/deletePost.php');
 	}
 
 	/**
@@ -72,6 +83,45 @@ class Frontend
 	{
 		$postManager   = new PostManager();
 		$affectedLines = $postManager->addPost($title, $post);
+
+		if ($affectedLines === false)
+		{
+			die('impossible d ajouter votre nouveau billet');
+		}
+		else
+
+		{
+			header('location: index.php?');
+		}
+	}
+	/**
+	*
+	* method to write a new post
+	*@params $title,$post 
+	*/
+
+	public function adjustPost($id, $title, $post)
+	{
+		$postManager   = new PostManager();
+		$post          = $postManager->getPost($id);
+		$affectedLines = $postManager->updatePost($title, $post);
+
+		if ($affectedLines === false)
+		{
+			die('impossible d ajouter votre nouveau billet');
+		}
+		else
+
+		{
+			header('location: index.php?');
+		}
+	}
+	public function delPost($id)
+	{
+		$postManager   = new PostManager();
+		$post          = $postManager->getPost($id);
+		$affectedLines = $postManager->updatePost($id);
+	
 
 		if ($affectedLines === false)
 		{

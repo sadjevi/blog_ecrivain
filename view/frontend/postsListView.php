@@ -35,8 +35,11 @@
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
+		<p><a href="view/frontend/updatePost.php?action=post&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
+		<p><a href="view/frontend/deletePost.php?action=post&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>
 		
 	</div>
+
 <?php endwhile; ?>
 		
        

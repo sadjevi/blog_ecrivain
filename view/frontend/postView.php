@@ -20,6 +20,8 @@
 			<?= htmlspecialchars($post['post']); ?><br/>
 		</div> 
 	</div>
+
+	
 	
 	
 	<div id="form">	

@@ -5,9 +5,9 @@
 
 
 
-<p>etes vous bien sur de vouloir supprimer ce billet?</p>
 
-$
+
+
 
 <div id="btitle">
 			<h3>
@@ -17,7 +17,25 @@ $
 		<div id="posts"
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
+		
 		</div> 
+
+		<div id="form">	
+
+			<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
+
+			   	<div id=formtitle>
+			    	<legend>etes vous bien sur de vouloir supprimer ce billet?</legend> 
+			    </div>
+
+			    <div id=delete>
+		       		<input type="submit" value="Oui je souhaite definitivement supprimmer ce billet" />
+		       	</div>		       				       		      
+			   
+			</form>
+
+		</div>
+
 
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->

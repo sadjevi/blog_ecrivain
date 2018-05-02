@@ -28,8 +28,6 @@ class Frontend
 	*/
 	public function post($id)
 	{
-		//$post = getpost($id);
-		//$comments = getcomments($id);
 		$postManager    = new PostManager();
 		$commentManager = new CommentManager();
 
@@ -39,26 +37,26 @@ class Frontend
 		require_once('view/frontend/postView.php');
 	}
 
-	public function npost($id)
-	{
-		//$post = getpost($id);
-		//$comments = getcomments($id);
+	/**
+	*
+	* show a specific post in order to delete it
+	*@params $id 
+	*/
+	public function todltPost($id)
+	{	
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
 		
-
 		require_once('view/frontend/deletePost.php');
 	}
 
 	/**
 	*
-	* method to add a new comment in the post
+	* method to add a new comment in a specific post
 	*@params $post_id, $author & $content 
 	*/
-
 	public function postComment($postid, $author, $content)
 	{
-		//$affectedlines = addcomment($postid, $author, $content);
 		$commentManager = new CommentManager();
 		$affectedLines  = $commentManager->addComment($postid, $author, $content);
 
@@ -74,12 +72,23 @@ class Frontend
 	}
 
 	/**
+	* method to retrieve lasts posts
+	* 
+	*/
+	public function listLastPosts()
+	{
+		$postManager = new PostManager();
+		$lastPosts   = $postManager->getLastPosts();
+
+		require_once('view/frontend/createPost.php');
+	}
+
+	/**
 	*
-	* method to write a new post
+	* method to create a new post
 	*@params $title,$post 
 	*/
-
-	public function newPost($title, $post)
+	public function createPost($title, $post)
 	{
 		$postManager   = new PostManager();
 		$affectedLines = $postManager->addPost($title, $post);
@@ -94,34 +103,30 @@ class Frontend
 			header('location: index.php?');
 		}
 	}
+
 	/**
 	*
-	* method to write a new post
-	*@params $title,$post 
+	* method to show a post in order to delete it
+	*@params $id
 	*/
-
-	public function adjustPost($id, $title, $post)
+	public function toupdtPost($id) // edit
 	{
-		$postManager   = new PostManager();
-		$post          = $postManager->getPost($id);
-		$affectedLines = $postManager->updatePost($title, $post);
+		
+		$postManager    = new PostManager();
+		$post           = $postManager->getPost($id);
 
-		if ($affectedLines === false)
-		{
-			die('impossible d ajouter votre nouveau billet');
-		}
-		else
-
-		{
-			header('location: index.php?');
-		}
+		require_once('view/frontend/updatePost.php');
 	}
-	public function delPost($id)
+
+	/**
+	*
+	* method to update a post
+	*@params $id, $title, $post
+	*/
+	public function updatePost($id, $title, $post) // update
 	{
 		$postManager   = new PostManager();
-		$post          = $postManager->getPost($id);
-		$affectedLines = $postManager->updatePost($id);
-	
+		$affectedLines = $postManager->adjustPost($id,$title, $post);
 
 		if ($affectedLines === false)
 		{
@@ -132,6 +137,21 @@ class Frontend
 		{
 			header('location: index.php?');
 		}
+
+	}
+
+	/**
+	*
+	* method to delete specific post
+	*@params $id
+	*/
+	public function deletePost($id)
+	{
+		$postManager   = new PostManager();
+		$postManager->delPost($id);
+	
+		header('location: index.php?');
+		
 	}
 
 }

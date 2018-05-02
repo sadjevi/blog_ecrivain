@@ -15,7 +15,7 @@
 </div>
 
 
-<p><a href="addComment.php">Nouveau billet</a></p>
+<em><a href="index.php?action=listLastPosts">ajouter</a></em>
 
 
 		
@@ -35,8 +35,8 @@
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
-		<p><a href="view/frontend/updatePost.php?action=post&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
-		<p><a href="view/frontend/deletePost.php?action=post&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>
+		<p><a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
+		<p><a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>
 		
 	</div>
 

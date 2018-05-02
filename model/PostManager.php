@@ -2,75 +2,82 @@
 
 
 class PostManager
-{
 
-	public function getPosts()
+
+{
+	/**
+	* method to retrieve last posts
+	* 
+	*/
+	public function getLastPosts()
+	{
+		$db  = $this->dbConnect();
+		$lastPosts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT 0, 3');
+
+		return $lastPosts;
+	}
+
 	/**
 	* method to retrieve all posts
 	* 
 	*/
+	public function getPosts()
 	{
 		$db  = $this->dbConnect();
-		$req = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC');
+		$posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC');
 
-		return $req;
-
+		return $posts;
 	}
 
-
-	public function getPost($postid)
 	/**
 	*
 	* show a specific post 
 	*@params $id 
 	*/
+	public function getPost($postid)
 	{
-		
 		$db   = $this->dbConnect();
 		$req  = $db->prepare('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
 		$req->execute(array($postid));
 		$post = $req->fetch();
 
-		return $post;
-		
+		return $post;	
 	}
 
-	public function addPost($title, $post)
-		/**
-		*
-		* method to add new postt 
-		*@params  $title & $post 
-		*/
-
-		{
-			$db            = $this->dbConnect();
-			$newpost       = $db->prepare('INSERT INTO posts(title, post, creation_date) VALUES (?, ?, NOW())');
-			$affectedLines = $newpost->execute(array($title, $post));
-
-			return $affectedLines;
-		}
-
-	public function updatePost($id, $title, $post)
-		/**
-		*
-		* method to update post
-		*@params $id, $title & $cpost 
-		*/
-
-		{
-			$db            = $this->dbConnect();
-			$updatedPost   = $db->prepare('UPDATE posts SET id = ?, title = ?, post = ?');
-			$affectedLines = $updatedPost->execute(array($id, $title, $post));
-
-			return $affectedLines;
-		}
-
-	public function deletePost($id)
 	/**
-		*
-		* method to delete post
-		*@params $id 
-		*/
+	*
+	* method to add new postt 
+	*@params  $title & $post 
+	*/
+	public function addPost($title, $post)	
+	{
+		$db            = $this->dbConnect();
+		$newpost       = $db->prepare('INSERT INTO posts(title, post, creation_date) VALUES (?, ?, NOW())');
+		$affectedLines = $newpost->execute(array($title, $post));
+
+		return $affectedLines;
+	}
+
+	/**
+	*
+	* method to update post
+	*@params $id, $title & $post 
+	*/
+	public function adjustPost($id, $title, $post)
+	{
+		$db            = $this->dbConnect();
+		$updatedPost   = $db->prepare('UPDATE posts SET title = ?, post = ? WHERE id = ?');
+		$affectedLines = $updatedPost->execute(array($title, $post, $id));
+
+		return $affectedLines;
+	}
+
+	/**
+	*
+	* method to delete post
+	*@params $id 
+	*/
+	public function delPost($id)
 	{
 		$db            = $this->dbConnect();
 		$erasedPost    = $db->prepare('DELETE from posts WHERE id = ?');
@@ -78,14 +85,13 @@ class PostManager
 
 		return $affectedLines;
 	}
-
 	
-
-	private function dbConnect()
 	/**
 	*
 	* method to connect database 
 	*/
+	private function dbConnect()
+	
 	{
 	    try
 	    {

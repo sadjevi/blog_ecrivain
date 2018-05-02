@@ -1,8 +1,8 @@
 <?php
 
 require('controller/frontend.php'); //loading 'controller.php' file to store functions in memory
-
 $controller = new Frontend();
+
 
 if(isset($_GET['action'])) // test of 'action' parameter,to know which one of controllers have to be called
 {
@@ -19,20 +19,9 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
-		}
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
 	}
-	elseif($_GET['action'] =='npost') //'post' controller is called 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
-		{
-			$controller->npost($_GET['id']); // if everything is ok --> execution of function 'post'
-		}
-		else 
-		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
-		}
-	}
+	
 	elseif($_GET['action'] == 'postComment')
 	{
 		if(isset($_GET['id']) && $_GET['id'] > 0)
@@ -51,12 +40,17 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 			echo 'Erreur: aucun identifiant de billet  envoyé';
 		}
 	}
-	elseif($_GET['action'] == 'newPost')
+	elseif($_GET['action'] == 'listLastPosts') 
+	{
+		$controller->listLastPosts();
+	}
+
+	elseif($_GET['action'] == 'createPost')
 	{
 
 		if(!empty ($_POST['title']) && !empty ($_POST['post']))
 		{
-			$controller->newPost($_POST['title'], $_POST['post']);
+			$controller->createPost($_POST['title'], $_POST['post']);
 		}
 		else
 		{
@@ -64,26 +58,46 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		}
 	
 	}
-	elseif($_GET['action'] =='adjustPost')
+	elseif($_GET['action'] =='toupdtPost') 
+	{
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
-			if(isset($_GET['id']) && $_GET['id'] > 0)
-			{
-				
-				if(!empty ($_POST['title']) && !empty ($_POST['post']))
-				{	
-					
-					$controller->adjustPost($_GET['id'] ,$_POST['title'], $_POST['post']);
-				}
-				else
-				{
-					echo ' erreur;le billet n a pu être modifié';
-				}
-			}
-			else
-			{
-				echo 'erreur: aucun identifiant de billet envoyé';
-			}
+			$controller->toupdtPost($_GET['id']); 
 		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	}
+	elseif($_GET['action'] =='updatePost')
+		{
+			
+			$controller->updatePost($_POST['id'] ,$_POST['title'], $_POST['post']);
+		
+		}
+	elseif($_GET['action'] =='todltPost')
+	{
+		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		{
+			$controller->todltPost($_GET['id']); 
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	}
+	elseif($_GET['action'] =='deletePost')
+	{ 
+		{
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+		{
+			$controller->deletePost($_GET['id']);
+		}
+			else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	}
 }
 else
 {

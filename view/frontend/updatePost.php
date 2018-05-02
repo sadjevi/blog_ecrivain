@@ -7,33 +7,40 @@
 <p> modification du billet</p>
 
 
-<div id="btitle">
+	<div id="btitle">
 			<h3>
 			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
-		</div>
-		<div id="posts"
+	</div>
+	<div id="posts"
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
-		</div> 
+	</div> 
 
 
 
 
 
-		<form action="index.php?action=adjustPost&amp;id=<?= $post['id'] ?>" method="post">
+	<form action="index.php?action=updatePost" method="post">
 
-		   	<label for="title">titre :</label><br/>
-       		<input type="text" name="title" id="title" /><br/>
+		<input type="hidden" name="id" value="<?= $post['id'];?>"/>
 
-       		<label for="post">écrire votre contenu ici</label><br /><br/>
-	       
-	       	<textarea name="post" id="post" rows="10" cols="50">
-	       	
-	       </textarea><br/>
+	   	<label for="title">Nouveau titre :</label><br/>
+   		<input type="text" name="title" id="title" value="<?= $post['title'];?>"/><br/>
 
-	       	<input type="submit" value="Envoyer" /> 
-	    </form>
+   		<label for="post">Nouveau billet </label><br /><br/>
+       
+       	<textarea name="post" id="post" rows="10" cols="50">
+       		<?= $post['post'];?>
+       	
+       </textarea><br/>
+
+       	<input type="submit" value="Envoyer" /> 
+    </form>
+
+
+
+
 
 
 

@@ -23,8 +23,33 @@ class PostManager
 	*/
 	public function getPosts()
 	{
-		$db  = $this->dbConnect();
-		$posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC');
+		$db   = $this->dbConnect();
+		$retour = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
+		$donnees = $retour->fetch();
+		$nbr = $donnees['posts_nb'];
+		$postspersheet = 5;
+		$sheetnbr  = ceil($nbr / $postspersheet);
+
+		if(isset($_GET['page']) && $_GET['page'] > 0) 
+		{
+	 		$currentsheet = $_GET['page'];
+	     	if($currentsheet > $sheetnbr) 
+		    {
+		          $currentsheet = $sheetnbr;
+		    }
+		}
+		else 
+		{
+		     $currentsheet = 1;    
+		}
+	 
+		$postspersheet = 5;
+		$firstpost=($currentsheet-1)*$postspersheet;
+		
+		$req = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT' .$firstpost .',' . $postspersheet .' ');
+		$posts = $req->fetch();
+		
+
 
 		return $posts;
 	}

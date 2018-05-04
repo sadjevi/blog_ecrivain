@@ -20,6 +20,7 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
 	}
 	
 	elseif($_GET['action'] == 'postComment')
@@ -88,8 +89,8 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 	}
 	elseif($_GET['action'] =='deletePost')
 	{ 
-		{
-			if(isset($_GET['id']) && $_GET['id'] > 0)  
+		
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
 			$controller->deletePost($_GET['id']);
 		}

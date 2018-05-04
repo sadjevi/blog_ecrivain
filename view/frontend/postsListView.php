@@ -41,6 +41,17 @@
 	</div>
 
 <?php endwhile; ?>
+
+<?php
+
+
+
+echo 'Page : ';
+for ($page_actuelle = 1 ; $page_actuelle <= $nombreDePages ; $page_actuelle++)
+{
+   echo '<a href="livre.php?page=' . $page_actuelle . '">' . $page_actuelle . '</a> ';
+}
+?>
 		
        
 

@@ -6,6 +6,7 @@
 		
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
+
 <div id="commentsheet">
 
 	<div id="billets2">

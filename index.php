@@ -7,7 +7,7 @@ $controller = new Frontend();
 if(isset($_GET['action'])) // test of 'action' parameter,to know which one of controllers have to be called
 {
 	if($_GET['action'] == 'listposts')  // 'listposts' controller is called
-	{
+	{	
 		$controller->listPosts(); // so execution of function 'listposts'
 	}
 

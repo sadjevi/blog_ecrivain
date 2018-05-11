@@ -44,13 +44,35 @@
 
 <?php
 
+if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
+		{
+	 		$currentsheet = $_GET['sheet'];
+	     	if($currentsheet > $sheetnbr) 
+		    {
+		          $currentsheet = $sheetnbr;
+		    }
+		}
+		else 
+		{
+		     $currentsheet = 1;    
+		}
 
+echo 'page : ';
 
-echo 'Page : ';
-for ($page_actuelle = 1 ; $page_actuelle <= $nombreDePages ; $page_actuelle++)
+for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
 {
-   echo '<a href="livre.php?page=' . $page_actuelle . '">' . $page_actuelle . '</a> ';
+	if($sheet == $currentsheet)
+	{
+		echo '[ ' . $_GET['sheet'] . '] ';
+	}
+	
+	else
+	{
+	   echo '<a href="index.php?sheet=' . $sheet . '">' . $sheet . '</a> ';
+	}
+	
 }
+
 ?>
 		
        

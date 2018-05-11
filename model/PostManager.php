@@ -4,7 +4,22 @@
 class PostManager
 
 
-{
+{	/**
+	* method to calculate number of sheets
+	* 
+	*/
+	public function getSheetNbr()
+	{
+		$db   = $this->dbConnect();
+		$retour = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
+		$donnees = $retour->fetch();
+		$nbr = $donnees['posts_nb'];
+		$postspersheet = 5;
+		$sheetnbr  = ceil($nbr / $postspersheet);
+
+		return $sheetnbr;
+	}
+
 	/**
 	* method to retrieve last posts
 	* 
@@ -30,9 +45,9 @@ class PostManager
 		$postspersheet = 5;
 		$sheetnbr  = ceil($nbr / $postspersheet);
 
-		if(isset($_GET['page']) && $_GET['page'] > 0) 
+		if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
 		{
-	 		$currentsheet = $_GET['page'];
+	 		$currentsheet = $_GET['sheet'];
 	     	if($currentsheet > $sheetnbr) 
 		    {
 		          $currentsheet = $sheetnbr;
@@ -43,14 +58,9 @@ class PostManager
 		     $currentsheet = 1;    
 		}
 	 
-		$postspersheet = 5;
 		$firstpost=($currentsheet-1)*$postspersheet;
+		$posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT ' . $firstpost .',' . $postspersheet .' ');
 		
-		$req = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT' .$firstpost .',' . $postspersheet .' ');
-		$posts = $req->fetch();
-		
-
-
 		return $posts;
 	}
 
@@ -121,6 +131,7 @@ class PostManager
 	    try
 	    {
 	        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
+	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        return $db;
 	    }
 	    catch(Exception $e)

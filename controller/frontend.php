@@ -16,6 +16,7 @@ class Frontend
 	{
 		//$posts = getposts();	
 		$postManager = new PostManager();
+		$sheetnbr    = $postManager->getSheetNbr();
 		$posts       = $postManager->getPosts();		
 		require  ('view/frontend/postsListView.php');
 

@@ -60,9 +60,12 @@
 						<div id="logo">
 							<h3>Built by:</h3>
 							<p><img src="public/images/logo_digitalizer.png" alt="digitalizer" /></p>
+
 						</div>
 
+
 					</div>
+					<p><a href="index.php?action=getlogin">administration du site</a></p>
 					 
 				</div>
 				<div id="final">

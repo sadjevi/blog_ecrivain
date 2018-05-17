@@ -2,6 +2,8 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
+
+
 <div id="start">
 
 	<h2>Carnet de voyages</h2>
@@ -15,7 +17,9 @@
 </div>
 
 
-<!--<em><a href="index.php?action=listLastPosts">ajouter</a></em>-->
+
+
+<em><a href="index.php?action=listLastPosts">ajouter</a></em>
 
 
 		
@@ -35,8 +39,8 @@
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
-		<!--<p><a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
-		<p><a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>-->
+		<p><a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
+		<p><a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>
 		
 	</div>
 
@@ -79,6 +83,6 @@ for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
-<?php require('template.php'); ?> <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+<?php require('view/frontend/template.php'); ?> <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
 
 		

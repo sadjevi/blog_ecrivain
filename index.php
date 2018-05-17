@@ -11,6 +11,24 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		$controller->listPosts(); // so execution of function 'listposts'
 	}
 
+	if($_GET['action'] == 'adminListPosts')  // 'listposts' controller is called
+	{	
+		
+		$controller->adminListPosts(); // so execution of function 'listposts'
+	}
+
+	if($_GET['action'] == 'log_pass')  // 'listposts' controller is called
+	{	
+		
+		$controller->log_pass(); // so execution of function 'listposts'
+	}
+
+	if($_GET['action'] == 'getlogin')  // 'listposts' controller is called
+	{	
+		
+		$controller->getlogin(); // so execution of function 'listposts'
+	}
+
 	elseif($_GET['action'] =='post') //'post' controller is called 
 	{
 		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
@@ -41,10 +59,12 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 			echo 'Erreur: aucun identifiant de billet  envoyé';
 		}
 	}
+
 	elseif($_GET['action'] == 'listLastPosts') 
 	{
 		$controller->listLastPosts();
 	}
+
 
 	elseif($_GET['action'] == 'createPost')
 	{

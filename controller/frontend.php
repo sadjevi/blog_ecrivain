@@ -1,13 +1,77 @@
 <?php
 require_once ('model/PostManager.php');
 require_once ('model/CommentManager.php');
+require_once ('model/AdminManager.php');
 
 /**
 * frontend controller
 *
 */
 class Frontend
-{
+{	
+	/**
+	*
+	* method to retrieve admin informations
+	*/
+	public function getlogin()
+	{
+		$adminManager = new AdminManager();
+		$log = $adminManager->getlogin();
+
+		require_once('view/frontend/authView.php');
+	}
+
+	/**
+	*
+	* method to connnect to admin page
+	*/
+	public function log_pass()
+	{
+		
+		$adminManager = new AdminManager();
+		$log    = $adminManager->getlogin();
+
+		$pass = password_verify($_POST['password'], $log['password']);
+
+		if ($pass === false)
+		{
+			die('erreur de login ou de mot de passe');
+		}
+		else
+		{
+			if($pass && $_POST['login'] == $log['login']) 
+			{
+				session_start();
+		        $_SESSION['id'] = $log['id'];
+		        $_SESSION['login'] = $log['login'];
+		        $_SESSION['password'] = $log['password'];
+			}
+			else
+			{
+				echo 'erreur de login ou de mot de passe';
+			}
+			
+		}
+		
+		
+		header('location: index.php?action=adminListPosts');
+	}
+	/**
+	*
+	* method to retrieve all posts with admin features
+	*/
+	public function adminListPosts()
+	{
+		
+		$postManager = new PostManager();
+		$sheetnbr    = $postManager->getSheetNbr();
+		$posts       = $postManager->getPosts();		
+
+		
+		require_once('view/frontend/adminView.php');
+
+	}
+
 	/**
 	* method to retrieve all posts
 	* 
@@ -18,10 +82,11 @@ class Frontend
 		$postManager = new PostManager();
 		$sheetnbr    = $postManager->getSheetNbr();
 		$posts       = $postManager->getPosts();		
-		require  ('view/frontend/postsListView.php');
+		require_once  ('view/frontend/postsListView.php');
 
 	}
 
+	
 	/**
 	*
 	* show a specific post and retrive comments
@@ -81,7 +146,7 @@ class Frontend
 		$postManager = new PostManager();
 		$lastPosts   = $postManager->getLastPosts();
 
-		require_once('view/frontend/createPost.php');
+		require_once('view/frontend/create.php');
 	}
 
 	/**

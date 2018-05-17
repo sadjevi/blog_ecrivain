@@ -70,6 +70,11 @@
 				</div>
 				<div id="final">
 					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
+					<?php if(isset($_SESSION['auth'])):?>
+						Vous êtes connecté en tant que <?= $_SESSION['login'];?>
+						<br/>
+						<a ref="index.php?action=logOut">se déconnecter</a>
+					<?php endif;?>
 				</div>
 
 			</footer>

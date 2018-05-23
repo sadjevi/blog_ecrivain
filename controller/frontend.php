@@ -68,7 +68,7 @@ class Frontend
 		$posts       = $postManager->getPosts();		
 
 		
-		require_once('view/frontend/adminView.php');
+		require_once('view/frontend/admingit View.php');
 
 	}
 

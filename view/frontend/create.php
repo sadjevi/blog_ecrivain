@@ -3,12 +3,14 @@
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
 
-
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
 
 
 <p> Ajout d'un nouveau billet</p>
+
+
+
 
 
 
@@ -29,7 +31,7 @@
 
 	   		<label for="post">écrire votre contenu ici</label><br /><br/>
 	       
-	       	<textarea name="post" id="post" rows="10" cols="50"></textarea><br/><br/>
+	       	<textarea class="tinymce" name="post" id="post" rows="10" cols="50"></textarea><br/><br/>
 
 	       	<input type="submit" value="Envoyer" /> 
 
@@ -60,6 +62,12 @@
 	</div>
 
 <?php endwhile; ?>
+
+
+
+<script src="js/tinymce/jquery.tinymce.min.js"></script>
+<script src="js/tinymce/tinymce.min.js"></script>
+<script src="js/tinymce/init-tinymce.js"></script>
 
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->

@@ -22,6 +22,16 @@ class Frontend
 	}
 
 	/**
+	* logout user, delete $_SESSION informations and redirect to home
+	*/
+	public function getLogOut()
+	{
+		// détruit toute les variables de la session
+		session_unset();
+		header('location: index.php');
+	}
+	
+	/**
 	*
 	* method to connnect to admin page
 	*/

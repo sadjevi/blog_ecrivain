@@ -51,10 +51,10 @@ class Frontend
 		{
 			if($pass && $_POST['login'] == $log['login']) 
 			{
-				session_start();
-		        $_SESSION['id'] = $log['id'];
-		        $_SESSION['login'] = $log['login'];
-		        $_SESSION['password'] = $log['password'];
+				$_SESSION['auth'] = true;
+		        	$_SESSION['id'] = $log['id'];
+		        	$_SESSION['login'] = $log['login'];
+		        	$_SESSION['password'] = $log['password'];
 			}
 			else
 			{

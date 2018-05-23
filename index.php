@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 require('controller/frontend.php'); //loading 'controller.php' file to store functions in memory
 $controller = new Frontend();
@@ -13,8 +15,11 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 
 	if($_GET['action'] == 'adminListPosts')  // 'listposts' controller is called
 	{	
-		
-		$controller->adminListPosts(); // so execution of function 'listposts'
+		if(isset($_SESSION['auth']) {
+			$controller->adminListPosts(); // so execution of function 'listposts'
+		} else {
+			// page your not allowed to access
+		}
 	}
 
 	if($_GET['action'] == 'log_pass')  // 'listposts' controller is called

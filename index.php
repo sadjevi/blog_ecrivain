@@ -190,6 +190,18 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
 	}
+	elseif($_GET['action'] =='deleteComment')
+	{ 
+		
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		{
+			$controller->deleteComment($_GET['id']);
+		}
+			else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	}
 }
 else
 {

@@ -289,6 +289,23 @@ class Frontend
 
 	}
 
+
+/**
+	*
+	* method to delete specific post
+	*@params $id
+	*/
+	public function deleteComment($id)
+	{
+		$commentManager   = new CommentManager();
+		$commentManager->delComment($id);
+	
+		header('location: index.php?action=getRepComs');
+		
+	}
+
+
+
 	/**
 	*
 	* method to delete specific post
@@ -299,7 +316,7 @@ class Frontend
 		$postManager   = new PostManager();
 		$postManager->delPost($id);
 	
-		header('location: index.php?');
+		header('location: index.php?action=adminListPosts');
 		
 	}
 

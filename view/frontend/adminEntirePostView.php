@@ -46,7 +46,7 @@
 
 		<em><a href="index.php?action=approveCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="approuver "value="approuver"</a></em>
 
-		<em><a href="index.php?action=approveCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"</a></em>
+		<em><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"</a></em>
 
 		<?php endwhile; ?>
 	</div>

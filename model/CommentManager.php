@@ -59,7 +59,7 @@ class CommentManager
 			return $rComments;
 		}
 
-		public function delPost($id)
+		public function delComment($id)
 		{
 			$db            = $this->dbConnect();
 			$erasedComment    = $db->prepare('DELETE from comments WHERE id = ?');

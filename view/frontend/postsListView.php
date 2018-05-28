@@ -31,7 +31,8 @@
 		</div>
 		<div id="posts"
 			<p>
-			<?= htmlspecialchars($data['post']); ?><br/> 
+			<?= htmlspecialchars(substr($data['post'], 1, 200)); ?> ... <br/>
+			<p><a href="index.php?action=getEntirePost&amp;id=<?= $data['id']; ?>"">Lire la suite</a></p> 
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
@@ -61,9 +62,18 @@ echo 'page : ';
 
 for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
 {
+	
+	(isset($_GET['sheet'])) ? $page = $_GET['sheet'] : $page = 1; 
+
+	if(isset($_GET['sheet'])) {
+		$page = $_GET['sheet'] ;
+	} else {
+		$page = 1;
+	};
+
 	if($sheet == $currentsheet)
 	{
-		echo '[ ' . $_GET['sheet'] . '] ';
+		echo '[ ' . $page . '] ';
 	}
 	
 	else

@@ -1,0 +1,35 @@
+<?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
+
+<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
+
+
+
+<p><a href="index.php">Retour à la liste des billets</a></p>
+
+
+<div id='comments'>
+	<div id="ctitle">
+		<h3>Commentaires signalés</h3>
+	</div>
+
+	<div id="content">
+		<?php while($rc = $rComments->fetch()): ?>
+
+		</p>
+		<strong><?= htmlspecialchars($rc['author']); ?></strong><em> le <?= $rc['created_date_fr']; ?></em><br/>
+		<?= htmlspecialchars($rc['content']); ?><br/>
+		
+		<em><a href="index.php?action=adminPost&amp;id=<?= $rc['post_id']; ?>">revoir article</a></em>
+
+
+		<?php endwhile; ?>
+	</div>
+</div>
+
+
+
+
+<?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
+
+<?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+

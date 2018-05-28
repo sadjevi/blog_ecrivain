@@ -31,6 +31,52 @@ class CommentManager
 
 			return $affectedLines;
 		}
+
+		public function reportComment($id)
+		{
+			$db            = $this->dbConnect();
+			$reportComment   = $db->prepare('UPDATE comments SET reported = 1 WHERE id = ?');
+			$affectedLines = $reportComment->execute(array($id));
+
+			return $affectedLines;
+		}
+
+
+		public function approveComment($id)
+		{
+			$db            = $this->dbConnect();
+			$reportComment   = $db->prepare('UPDATE comments SET reported = 0 WHERE id = ?');
+			$affectedLines = $reportComment->execute(array($id));
+
+			return $affectedLines;
+		}
+
+		public function getReportedComments()
+		{
+			$db       = $this->dbConnect();
+			$rComments = $db->query('SELECT id, post_id, author, content, DATE_FORMAT(created_date, \'%d/%m/%Y à %Hh%imin%ss\') AS created_date_fr FROM comments WHERE reported = 1 ORDER BY created_date DESC');
+
+			return $rComments;
+		}
+
+		public function delPost($id)
+		{
+			$db            = $this->dbConnect();
+			$erasedComment    = $db->prepare('DELETE from comments WHERE id = ?');
+			$affectedLines = $erasedComment->execute(array($id));
+
+			return $affectedLines;
+		}
+
+		public function getRepComNb()
+		{
+			$db   = $this->dbConnect();
+			$retour = $db->query('SELECT COUNT(*) AS coms_nb FROM comments WHERE reported = 1');
+			$donnees = $retour->fetch();
+			$cNbr = $donnees['coms_nb'];
+
+			return $cNbr;
+		}
 		
 
 		private function dbConnect()
@@ -42,6 +88,7 @@ class CommentManager
 		    try
 		    {
 		        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
+		        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		        return $db;
 		    }
 		    catch(Exception $e)

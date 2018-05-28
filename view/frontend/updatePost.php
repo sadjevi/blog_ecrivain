@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
+<? require_once('session_verif.php') ?>
 
 
 <p> modification du billet</p>

@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
+<? require_once('session_verif.php') ?>
 
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -47,12 +48,12 @@
 	<div id="billets">
 		<div id="btitle">
 			<h3>
-			<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
+			<?= $data['title']; ?><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
 		<div id="posts"
 			<p>
-			<?= htmlspecialchars($data['post']); ?><br/> 
+			<?= $data['post']; ?><br/> 
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
@@ -68,6 +69,7 @@
 <script src="js/tinymce/jquery.tinymce.min.js"></script>
 <script src="js/tinymce/tinymce.min.js"></script>
 <script src="js/tinymce/init-tinymce.js"></script>
+
 
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->

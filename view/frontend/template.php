@@ -65,11 +65,16 @@
 
 
 					</div>
-					<p><a href="index.php?action=getlogin">administration du site</a></p>
+					<p><a href="index.php?action=getlogIn">administration du site</a></p>
 					 
 				</div>
 				<div id="final">
 					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
+					<?php if(isset($_SESSION['auth'])):?>
+						Vous êtes connecté en tant que <?= $_SESSION['login'];?>
+						<br/>
+						<a href="index.php?action=getlogOut">se déconnecter</a>
+					<?php endif;?>
 				</div>
 
 			</footer>

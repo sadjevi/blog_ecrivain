@@ -22,32 +22,6 @@
 		</div> 
 	</div>
 
-	
-	
-	
-	<div id="form">	
-		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
-
-		   	<div id=formtitle>
-		    	<legend>Ajouter un commentaire</legend> 
-		    </div>
-
-		    <div id=author>
-	       		<label for="auteur">auteur</label><br/>
-	       	</div>
-
-	       		<input type="text" name="author" id="author" /><br/>
-	       	
-
-	       	
-	       	<label for="commentaire">inscrire votre commentaire ici</label><br />
-	       
-	       	<textarea name="content" id="content" rows="10" cols="50"></textarea><br/>
-	       	<input type="submit" value="Envoyer" />
-		   
-		</form>
-
-	</div>
 </div>
 
 				
@@ -70,7 +44,9 @@
 		id <?= htmlspecialchars($comment['id']); ?><br/>
 
 
-		<em><a href="index.php?action=reportCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="signaler "value="signaler"</a></em>
+		<em><a href="index.php?action=approveCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="approuver "value="approuver"</a></em>
+
+		<em><a href="index.php?action=approveCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"</a></em>
 
 		<?php endwhile; ?>
 	</div>

@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
+<? require_once('session_verif.php') ?>
 
 
 <div id="start">
@@ -19,10 +20,14 @@
 
 
 
-<em><a href="index.php?action=listLastPosts">ajouter</a></em>
+<em><a href="index.php?action=listLastPosts">Créer un nouvel article</a></em><br/>
+
+<p><a href="index.php?action=getRepComs">vous avez <?= $cNbr; ?> messages à moderer </a></em></p>
 
 
-		
+		<?php
+		echo 'vous avez ' . $cNbr . ' messages à modérer'
+		?>
 
 <?php while ($data = $posts->fetch()): ?>
 

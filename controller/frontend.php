@@ -13,7 +13,7 @@ class Frontend
 	*
 	* method to retrieve admin informations
 	*/
-	public function getlogin()
+	public function getlogIn()
 	{
 		$adminManager = new AdminManager();
 		$log = $adminManager->getlogin();
@@ -21,6 +21,16 @@ class Frontend
 		require_once('view/frontend/authView.php');
 	}
 
+	/**
+	* logout user, delete $_SESSION informations and redirect to home
+	*/
+	public function getLogOut()
+	{
+		// détruit toute les variables de la session
+		session_unset();
+		header('location: index.php');
+	}
+	
 	/**
 	*
 	* method to connnect to admin page
@@ -41,10 +51,10 @@ class Frontend
 		{
 			if($pass && $_POST['login'] == $log['login']) 
 			{
-				session_start();
-		        $_SESSION['id'] = $log['id'];
-		        $_SESSION['login'] = $log['login'];
-		        $_SESSION['password'] = $log['password'];
+				$_SESSION['auth'] = true;
+		        	$_SESSION['id'] = $log['id'];
+		        	$_SESSION['login'] = $log['login'];
+		        	$_SESSION['password'] = $log['password'];
 			}
 			else
 			{
@@ -56,6 +66,18 @@ class Frontend
 		
 		header('location: index.php?action=adminListPosts');
 	}
+
+	public function getEntirePost($id)
+	/**
+	*
+	* method to retrieve entire post
+	*/
+	{
+		$postManager    = new PostManager();
+		$post           = $postManager->getPost($id);
+
+		require ('view/frontend/entirePostView.php');
+	}
 	/**
 	*
 	* method to retrieve all posts with admin features
@@ -64,11 +86,14 @@ class Frontend
 	{
 		
 		$postManager = new PostManager();
+		$commentManager =new CommentManager();
+
+		$cNbr        = $commentManager->getRepComNb();
 		$sheetnbr    = $postManager->getSheetNbr();
 		$posts       = $postManager->getPosts();		
 
 		
-		require_once('view/frontend/admingit View.php');
+		require_once('view/frontend/adminView.php');
 
 	}
 
@@ -101,6 +126,23 @@ class Frontend
 		$comments       = $commentManager->getComments($id);
 
 		require_once('view/frontend/postView.php');
+	}
+
+
+	/**
+	*
+	* show a specific post and retrive comments
+	*@params $id 
+	*/
+	public function adminPost($id)
+	{
+		$postManager    = new PostManager();
+		$commentManager = new CommentManager();
+
+		$post           = $postManager->getPost($id);
+		$comments       = $commentManager->getComments($id);
+
+		require_once('view/frontend/adminEntirePostView.php');
 	}
 
 	/**
@@ -164,9 +206,8 @@ class Frontend
 			die('impossible d ajouter votre nouveau billet');
 		}
 		else
-
 		{
-			header('location: index.php?');
+			header('location: index.php?action=adminListPosts');
 		}
 	}
 
@@ -199,10 +240,52 @@ class Frontend
 			die('impossible d ajouter votre nouveau billet');
 		}
 		else
-
 		{
 			header('location: index.php?');
 		}
+
+	}
+
+	public function reportCom($id)
+	{
+		$commentManager = new CommentManager();
+		$affectedLines = $commentManager->reportComment($id);
+
+		if ($affectedLines === false)
+		{
+			die('impossible d ajouter votre nouveau billet');
+		}
+		else
+		{
+			require_once('view/frontend/reported_confirmView.php');
+		}
+
+	}
+
+	public function approveCom($id)
+	{
+		$commentManager = new CommentManager();
+		$affectedLines = $commentManager->approveComment($id);
+
+		if ($affectedLines === false)
+		{
+			die('impossible d ajouter votre nouveau billet');
+		}
+		else
+		{
+			header('location: index.php?action=getRepComs');
+		}
+
+	}
+
+	public function getRepComs()
+	{
+		$postManager    = new PostManager();
+		$commentManager = new CommentManager();
+
+		$rComments = $commentManager->getReportedComments();
+
+		require_once('view/frontend/reportedComsView.php');
 
 	}
 

@@ -51,11 +51,13 @@ class Frontend
 		{
 			if($pass && $_POST['login'] == $log['login']) 
 			{
+				session_start();
+
 				$_SESSION['auth'] = true;
-		        	$_SESSION['id'] = $log['id'];
-		        	$_SESSION['login'] = $log['login'];
-		        	$_SESSION['password'] = $log['password'];
-			}
+	        	$_SESSION['id'] = $log['id'];
+	        	$_SESSION['login'] = $log['login'];
+	        	$_SESSION['password'] = $log['password'];
+			} 
 			else
 			{
 				echo 'erreur de login ou de mot de passe';
@@ -93,7 +95,7 @@ class Frontend
 		$posts       = $postManager->getPosts();		
 
 		
-		require_once('view/frontend/adminView.php');
+		require_once('view/backend/adminView.php');
 
 	}
 
@@ -134,6 +136,22 @@ class Frontend
 	* show a specific post and retrive comments
 	*@params $id 
 	*/
+	public function adminPostRep($id)
+	{
+		$postManager    = new PostManager();
+		$commentManager = new CommentManager();
+
+		$post           = $postManager->getPost($id);
+		$rComment       = $commentManager->getReportedComment($id);
+
+		require_once('view/backend/adminEntirePostView.php');
+	}
+
+	/**
+	*
+	* show a specific post and retrive comments
+	*@params $id 
+	*/
 	public function adminPost($id)
 	{
 		$postManager    = new PostManager();
@@ -142,7 +160,7 @@ class Frontend
 		$post           = $postManager->getPost($id);
 		$comments       = $commentManager->getComments($id);
 
-		require_once('view/frontend/adminEntirePostView.php');
+		require_once('view/backend/adminPostView.php');
 	}
 
 	/**
@@ -155,7 +173,7 @@ class Frontend
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
 		
-		require_once('view/frontend/deletePost.php');
+		require_once('view/backend/deletePost.php');
 	}
 
 	/**
@@ -188,7 +206,7 @@ class Frontend
 		$postManager = new PostManager();
 		$lastPosts   = $postManager->getLastPosts();
 
-		require_once('view/frontend/create.php');
+		require_once('view/backend/create.php');
 	}
 
 	/**
@@ -222,7 +240,7 @@ class Frontend
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
 
-		require_once('view/frontend/updatePost.php');
+		require_once('view/backend/updatePost.php');
 	}
 
 	/**
@@ -241,7 +259,7 @@ class Frontend
 		}
 		else
 		{
-			header('location: index.php?');
+			header('location: index.php?action=adminListPosts');
 		}
 
 	}
@@ -285,7 +303,7 @@ class Frontend
 
 		$rComments = $commentManager->getReportedComments();
 
-		require_once('view/frontend/reportedComsView.php');
+		require_once('view/backend/reportedComsView.php');
 
 	}
 

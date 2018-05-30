@@ -1,8 +1,11 @@
+
+<? require_once('session_verif.php') ?>
+
+
+
 <?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
-
-<? require_once('session_verif.php') ?>
 
 
 <div id="start">
@@ -18,16 +21,16 @@
 </div>
 
 
-
-
-<em><a href="index.php?action=listLastPosts">Créer un nouvel article</a></em><br/>
+<p>Bonjour <?= $_SESSION['login'];?><br/>
 
 <p><a href="index.php?action=getRepComs">vous avez <?= $cNbr; ?> messages à moderer </a></em></p>
 
+<em><a href="index.php?action=listLastPosts">Créer un nouvel article</a></em><br/>
 
-		<?php
-		echo 'vous avez ' . $cNbr . ' messages à modérer'
-		?>
+
+
+
+		
 
 <?php while ($data = $posts->fetch()): ?>
 
@@ -41,7 +44,7 @@
 		<div id="posts"
 			<p>
 			<?= htmlspecialchars($data['post']); ?><br/> 
-			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
+			<em><a href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
 		<p><a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
@@ -70,14 +73,22 @@ echo 'page : ';
 
 for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
 {
+	(isset($_GET['sheet'])) ? $page = $_GET['sheet'] : $page = 1; 
+
+	if(isset($_GET['sheet'])) {
+		$page = $_GET['sheet'] ;
+	} else {
+		$page = 1;
+	};
+
 	if($sheet == $currentsheet)
 	{
-		echo '[ ' . $_GET['sheet'] . '] ';
+		echo '[ ' . $page . '] ';
 	}
 	
 	else
 	{
-	   echo '<a href="index.php?sheet=' . $sheet . '">' . $sheet . '</a> ';
+	   echo '<a href="index.php?action=adminListPosts&amp; sheet=' . $sheet . '">' . $sheet . '</a> ';
 	}
 	
 }

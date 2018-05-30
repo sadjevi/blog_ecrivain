@@ -9,6 +9,9 @@
 
 
 
+<p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
+
+
 <div id="btitle">
 			<h3>
 			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
@@ -40,4 +43,4 @@
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
-<?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+<?php require('view/frontend/template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->

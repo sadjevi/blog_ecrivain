@@ -4,7 +4,11 @@
 
 <? require_once('session_verif.php') ?>
 
-<p><a href="index.php">Retour à la liste des billets</a></p>
+
+
+
+
+<p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
 
 
 
@@ -66,14 +70,14 @@
 
 
 
-<script src="js/tinymce/jquery.tinymce.min.js"></script>
-<script src="js/tinymce/tinymce.min.js"></script>
-<script src="js/tinymce/init-tinymce.js"></script>
+<script type="text/javascript" src="js/tinymce/jquery.tinymce.min.js"></script>
+<script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="js/tinymce/init-tinymce.js"></script>
 
 
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
-<?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+<?php require('view/frontend/template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
 
 

@@ -80,6 +80,18 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		}
 	}
 	
+
+	elseif($_GET['action'] =='adminPostRep') //'post' controller is called 
+	{
+		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+		{
+			$controller->adminPostRep($_GET['id']); // if everything is ok --> execution of function 'post'
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	}
 	elseif($_GET['action'] == 'postComment')
 	{
 		if(isset($_GET['id']) && $_GET['id'] > 0)

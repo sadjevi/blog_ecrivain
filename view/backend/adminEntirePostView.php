@@ -2,9 +2,12 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
+<? require_once('session_verif.php') ?>
+
 
 		
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
+
 
 
 <div id="commentsheet">
@@ -36,7 +39,7 @@
 	</div>
 
 	<div id="content">
-		<?php while($comment = $comments->fetch()): ?>
+		<?php while($comment = $rComment->fetch()): ?>
 
 		</p>
 		<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
@@ -57,6 +60,6 @@
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
-<?php require('template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
+<?php require('view/frontend/template.php'); ?>  <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->
 
 

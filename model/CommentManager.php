@@ -17,6 +17,21 @@ class CommentManager
 		}
 
 
+		public function getReportedComment($postid)
+		/**
+		*
+		* method to retrieve all comments for a specific post 
+		*@params $post_id 
+		*/
+		{
+			$db       = $this->dbConnect();
+			$rComment = $db->prepare('SELECT id, author, content, DATE_FORMAT(created_date, \'%d/%m/%Y à %Hh%imin%ss\') AS created_date_fr FROM comments WHERE post_id = ? AND reported = 1 ORDER BY created_date DESC');
+			$rComment->execute(array($postid));
+
+			return $rComment;
+		}
+
+
 		public function addComment($postid, $author, $content)
 		/**
 		*

@@ -2,98 +2,56 @@
 session_start();
 
 
-require('controller/frontend.php'); //loading 'controller.php' file to store functions in memory
+require('controller/frontend.php'); 
+require('controller/backend.php'); 
+
+
+
 $controller = new Frontend();
+$backController = new BackController();
 
 
-if(isset($_GET['action'])) // test of 'action' parameter,to know which one of controllers have to be called
+
+(isset($_GET['action'])) ? $action = $_GET['action'] : $action = 'listPosts';
+
+
+
+switch ($action) 
 {
-	if($_GET['action'] == 'listposts')  // 'listposts' controller is called
-	{	
-		$controller->listPosts(); // so execution of function 'listposts'
-	}
 
-	if($_GET['action'] == 'adminListPosts')  // 'listposts' controller is called
-	{	
-		if(isset($_SESSION['auth'])) 
+												// frontend
+	case 'listPosts': 
+		$controller->listPosts();
+	break;
+
+	case 'getErrorView':
+		$controller->getErrorView();
+	break;
+
+	case 'getEntirePost': 
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
-			$controller->adminListPosts(); // so execution of function 'listposts'
-		}
-		 else 
-		{
-			// page your not allowed to access
-		}
-	}
-
-	if($_GET['action'] == 'log_pass')  // 'listposts' controller is called
-	{	
-		
-		$controller->log_pass(); // so execution of function 'listposts'
-	}
-
-	if($_GET['action'] == 'getEntirePost')  // 'listposts' controller is called
-	{	
-		
-		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
-		{
-			$controller->getEntirePost($_GET['id']); // if everything is ok --> execution of function 'post'
-		}
-		else 
-		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
-		}
-	}
-
-	if($_GET['action'] == 'getlogIn')  // 'listposts' controller is called
-	{	
-		
-		$controller->getlogin(); // so execution of function 'listposts'
-	}
-
-	if($_GET['action'] == 'getlogOut') 
-	{	
-		
-		$controller->getlogOut(); 
-	}
-
-	elseif($_GET['action'] =='post') //'post' controller is called 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
-		{
-			$controller->post($_GET['id']); // if everything is ok --> execution of function 'post'
+			$controller->getEntirePost($_GET['id']); 
 		}
 		else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
+	break;
 
-	elseif($_GET['action'] =='adminPost') //'post' controller is called 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+	case 'post': 
+		if(isset($_GET['id']) && $_GET['id'] > 0) 
 		{
-			$controller->adminPost($_GET['id']); // if everything is ok --> execution of function 'post'
+			$controller->post($_GET['id']); 
 		}
 		else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
-	
+	break;
 
-	elseif($_GET['action'] =='adminPostRep') //'post' controller is called 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
-		{
-			$controller->adminPostRep($_GET['id']); // if everything is ok --> execution of function 'post'
-		}
-		else 
-		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
-		}
-	}
-	elseif($_GET['action'] == 'postComment')
-	{
+
+	case 'postComment': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)
 		{
 			if(!empty ($_POST['author']) && !empty ($_POST['content']))
@@ -109,41 +67,9 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		{
 			echo 'Erreur: aucun identifiant de billet  envoyé';
 		}
-	}
+	break;
 
-	elseif($_GET['action'] == 'listLastPosts') 
-	{
-		$controller->listLastPosts();
-	}
-
-
-	elseif($_GET['action'] == 'createPost')
-	{
-
-		if(!empty ($_POST['title']) && !empty ($_POST['post']))
-		{
-			$controller->createPost($_POST['title'], $_POST['post']);
-		}
-		else
-		{
-			echo 'erreur le billet n a pu être enregistré';
-		}
-	
-	}
-	elseif($_GET['action'] =='toupdtPost') 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
-		{
-			$controller->toupdtPost($_GET['id']); 
-		}
-		else 
-		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
-		}
-	}
-
-	elseif($_GET['action'] =='reportCom') 
-	{
+	case 'reportCom': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
 			$controller->reportCom($_GET['id']); 
@@ -152,74 +78,145 @@ if(isset($_GET['action'])) // test of 'action' parameter,to know which one of co
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
+	break;
 
-	elseif($_GET['action'] =='approveCom') 
-	{
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+
+
+
+
+													// backend
+
+
+	case 'adminListPosts':
+		if(isset($_SESSION['auth'])) 
 		{
-			$controller->approveCom($_GET['id']); 
-		}
-		else 
+			$backController->adminListPosts();
+		} 		
+		 else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView();
 		}
-	}
+	break;
 
-	elseif($_GET['action'] == 'getRepComs') 
-	{	
-		
-		$controller->getRepComs(); 
-	}
+	case 'log_pass': 
+		$backController->log_pass();
+	break;
+
+	case 'getlogIn': 
+		$backController->getlogIn();
+	break;
 
 
-	elseif($_GET['action'] =='updatePost')
-		{
-			
-			$controller->updatePost($_POST['id'] ,$_POST['title'], $_POST['post']);
-		
-		}
-	elseif($_GET['action'] =='todltPost')
-	{
+	case 'getlogOut': 
+		$backController->getlogOut();
+	break;
+
+	case 'adminPost': 
 		if(isset($_GET['id']) && $_GET['id'] > 0) 
 		{
-			$controller->todltPost($_GET['id']); 
+			$backController->adminPost($_GET['id']); 
 		}
 		else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
-	elseif($_GET['action'] =='deletePost')
-	{ 
-		
+	break;
+
+
+	case 'adminPostRep': 
+		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		{
+			$backController->adminPostRep($_GET['id']); 
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	break;
+
+	case 'listLastPosts': 
+		$backController->listLastPosts();
+	break;
+
+	case 'createPost': 
+		if(!empty ($_POST['title']) && !empty ($_POST['post']))
+		{
+			$backController->createPost($_POST['title'], $_POST['post']);
+		}
+		else
+		{
+			echo 'erreur le billet n a pu être enregistré';
+		}
+	break;
+
+
+	case 'toupdtPost': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
-			$controller->deletePost($_GET['id']);
+			$backController->toupdtPost($_GET['id']); 
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	break;
+
+	case 'approveCom': 
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		{
+			$backController->approveCom($_GET['id']); 
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	break;
+
+
+	case 'getRepComs': 
+		$backController->getRepComs();
+	break;
+
+
+	case 'updatePost': 
+		$backController->updatePost($_POST['id'] ,$_POST['title'], $_POST['post']);
+	break;
+
+
+	case 'todltPost': 
+		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		{
+			$backController->todltPost($_GET['id']); 
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		}
+	break;
+
+
+	case 'deletePost': 
+		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		{
+			$backController->deletePost($_GET['id']);
 		}
 			else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
-	elseif($_GET['action'] =='deleteComment')
-	{ 
-		
+	break;
+
+
+	case 'deleteComment': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
-			$controller->deleteComment($_GET['id']);
+			$backController->deleteComment($_GET['id']);
 		}
 			else 
 		{
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
-	}
-}
-else
-{
-	$controller->listPosts(); // if 'action' parameter isn't found ---> loading of posts list
+	break;
 }
 
-
-
-
+	

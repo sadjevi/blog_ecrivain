@@ -23,7 +23,7 @@
 		<strong><?= htmlspecialchars($rc['author']); ?></strong><em> le <?= $rc['created_date_fr']; ?></em><br/>
 		<?= htmlspecialchars($rc['content']); ?><br/>
 		
-		<em><a href="index.php?action=adminPost&amp;id=<?= $rc['post_id']; ?>">revoir article</a></em>
+		<em><a href="index.php?action=adminPostRep&amp;id=<?= $rc['post_id']; ?>">revoir article</a></em>
 
 
 		<?php endwhile; ?>

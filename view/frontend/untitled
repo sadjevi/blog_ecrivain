@@ -1,0 +1,265 @@
+<?php
+session_start();
+
+
+require('controller/frontend.php'); //loading 'controller.php' file to store functions in memory
+$controller = new Frontend();
+
+if(isset($_GET['action']))
+{
+
+	switch ($_GET['action']) 
+	{
+
+		case listposts: 
+			$controller->listPosts();
+		break;
+
+
+		case adminListPosts:
+			if(isset($_SESSION['auth'])) 
+			{
+				$controller->adminListPosts();
+			} 		
+			 else 
+			{
+				// page your not allowed to access
+			}
+		break;
+
+
+		case log_pass: 
+			$controller->log_pass();
+		break;
+
+
+		case getEntirePost: 
+			if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+			{
+				$controller->getEntirePost($_GET['id']); // if everything is ok --> execution of function 'post'
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
+			}
+		break;
+
+
+		case getlogIn: 
+			$controller->getlogin();
+		break;
+
+
+		case getlogOut: 
+			$controller->getlogOut();
+		break;
+
+
+		case post: 
+			if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+			{
+				$controller->post($_GET['id']); // if everything is ok --> execution of function 'post'
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case adminPost: 
+			if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+			{
+				$controller->adminPost($_GET['id']); // if everything is ok --> execution of function 'post'
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case adminPostRep: 
+			if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+			{
+				$controller->adminPostRep($_GET['id']); // if everything is ok --> execution of function 'post'
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case postComment: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)
+			{
+				if(!empty ($_POST['author']) && !empty ($_POST['content']))
+				{
+					$controller->postComment($_GET['id'], $_POST['author'], $_POST['content']);
+				}
+				else 
+				{
+					echo 'Erreur: le commentaire n a pu être ajouté, tous les champs ne sont pas remplis !';
+				}
+			}		
+			else
+			{
+				echo 'Erreur: aucun identifiant de billet  envoyé';
+			}
+		break;
+
+
+		case listLastPosts: 
+			$controller->listLastPosts();
+		break;
+
+
+		case createPost: 
+			if(!empty ($_POST['title']) && !empty ($_POST['post']))
+			{
+				$controller->createPost($_POST['title'], $_POST['post']);
+			}
+			else
+			{
+				echo 'erreur le billet n a pu être enregistré';
+			}
+		break;
+
+
+		case toupdtPost: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+			{
+				$controller->toupdtPost($_GET['id']); 
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case reportCom: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+			{
+				$controller->reportCom($_GET['id']); 
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case approveCom: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+			{
+				$controller->approveCom($_GET['id']); 
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case getRepComs: 
+			$controller->getRepComs();
+		break;
+
+
+		case updatePost: 
+			$controller->updatePost($_POST['id'] ,$_POST['title'], $_POST['post']);
+		break;
+
+
+		case todltPost: 
+			if(isset($_GET['id']) && $_GET['id'] > 0) 
+			{
+				$controller->todltPost($_GET['id']); 
+			}
+			else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case deletePost: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+			{
+				$controller->deletePost($_GET['id']);
+			}
+				else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+
+		case deleteComment: 
+			if(isset($_GET['id']) && $_GET['id'] > 0)  
+			{
+				$controller->deleteComment($_GET['id']);
+			}
+				else 
+			{
+				echo 'Erreur: aucun identifiant de billet envoyé'; 
+			}
+		break;
+
+	}
+}
+else
+{
+	$controller->listPosts();
+}
+
+
+
+
+
+
+
+/*// listes des routes
+$listAction = array('listPosts' => 'getListPosts', 
+					'todltPost' => 'getTodltPost');
+
+
+// actions demandée
+if(isset($_GET['action'])) {
+	$action = $_GET['action'];
+} else {
+	$action = null;
+}
+
+
+// lance l'action demandée
+if(array_key_exists($action, $listAction)) {
+	$listAction[$action](); // execute l'action // vérifier si ça marche
+}
+
+
+// liste d'acitons
+function getListPosts()
+{
+	$controller->listPosts();
+}
+
+
+function getTodltPost()
+{
+	if(isset($_GET['id']) && $_GET['id'] > 0) // test of parametters 
+		{
+			$controller->todltPost($_GET['id']); // if everything is ok --> execution of function 'post'
+		}
+		else 
+		{
+			echo 'Erreur: aucun identifiant de billet envoyé'; // otherwise error message shown
+		}
+	}
+}
+
+
+// pour la pagin
+*/

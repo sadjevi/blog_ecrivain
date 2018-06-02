@@ -23,9 +23,23 @@
 
 <p>Bonjour <?= $_SESSION['login'];?><br/>
 
-<p><a href="index.php?action=getRepComs">vous avez <?= $cNbr; ?> messages à moderer </a></em></p>
+ <?php
 
-<em><a href="index.php?action=listLastPosts">Créer un nouvel article</a></em><br/>
+  if($cNbr >= 1)
+  {
+  	echo '<em><a href="index.php?action=getRepComs">vous avez ' . $cNbr . ' messages à moderer </a></em><br/>' ;
+  }
+  else
+  {
+  	echo 'vous n avez aucun message à moderer <br/>';
+  } 
+
+ 
+ ?>
+
+
+<em><a href="index.php?action=listLastPosts">Création d'un nouvel article</a></em><br/>
+
 
 
 

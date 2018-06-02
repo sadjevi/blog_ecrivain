@@ -7,7 +7,7 @@
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
 
-<p>Vous n'etes pas autorisés à acceder à cette page: veullez contacter l'administrateur</p>
+<p>Vous n'etes pas autorisé à acceder à cette page: veullez contacter l'administrateur</p>
 
 
 

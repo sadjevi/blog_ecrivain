@@ -24,18 +24,15 @@ switch ($action)
 		$controller->listPosts();
 	break;
 
-	case 'getErrorView':
-		$controller->getErrorView();
-	break;
-
 	case 'getEntirePost': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
 			$controller->getEntirePost($_GET['id']); 
 		}
 		else 
-		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+		{	
+			$controller->getErrorView("Erreur: aucun identifiant de billet envoyé");
+			//echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
 	break;
 
@@ -217,6 +214,9 @@ switch ($action)
 			echo 'Erreur: aucun identifiant de billet envoyé'; 
 		}
 	break;
+		
+	default:
+       		$controller->getErrorView("404 - Oupp, cette page n'existe pas, désolé, Bye Bye !");
 }
 
 	

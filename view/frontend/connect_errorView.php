@@ -3,6 +3,9 @@
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
 
+<?php if($messageError) :?>
+  <?php echo $messageError;?>
+<?php endif;?>
 
 <p><a href="index.php">Retour à la liste des billets</a></p>
 

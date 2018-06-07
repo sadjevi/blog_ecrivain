@@ -2,6 +2,7 @@
 require_once ('model/PostManager.php');
 require_once ('model/CommentManager.php');
 require_once ('model/AdminManager.php');
+require_once ('model/BddManager.php');
 
 /**
 * frontend controller
@@ -12,7 +13,7 @@ class Frontend
 	
 	/**
 	*
-	* method to redirect user to error page when admin informations are not set
+	* method to redirect user to an error page
 	*/
 	public function getErrorView($message = null)
 	{
@@ -102,7 +103,9 @@ class Frontend
 
 		if ($affectedLines === false)
 		{
-			die('impossible d ajouter votre nouveau billet');
+			//die('impossible d ajouter votre nouveau billet');
+			$messageError = "impossible de faire remonter le commentaire";
+			require ('view/frontend/connect_errorView.php');
 		}
 		else
 		{

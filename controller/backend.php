@@ -3,6 +3,7 @@
 require_once ('model/PostManager.php');
 require_once ('model/CommentManager.php');
 require_once ('model/AdminManager.php');
+require_once ('model/BddManager.php');
 
 
 class BackController
@@ -44,7 +45,9 @@ class BackController
 
 		if ($pass === false)
 		{
-			die('erreur de login ou de mot de passe');
+			//die('erreur de login ou de mot de passe');
+			$messageError = "erreur de login et/ou de mot de passe";
+			require ('view/frontend/connect_errorView.php');
 		}
 		else
 		{
@@ -57,8 +60,8 @@ class BackController
 			} 
 			else
 			{
-				echo 'erreur de login ou de mot de passe';
-				// add the errorView
+				$messageError = "erreur de login et/ou de mot de passe";
+				require ('view/frontend/connect_errorView.php');
 			}
 		}		
 		header('location: index.php?action=adminListPosts');
@@ -151,7 +154,9 @@ class BackController
 
 		if ($affectedLines === false)
 		{
-			die('impossible d ajouter votre nouveau billet');
+			//die('impossible d ajouter votre nouveau billet');
+			$messageError = "impossiple d ajouter le nouveau billet";
+			require ('view/frontend/connect_errorView.php');
 		}
 		else
 		{
@@ -185,7 +190,9 @@ class BackController
 
 		if ($affectedLines === false)
 		{
-			die('impossible d ajouter votre nouveau billet');
+			//die('impossible d ajouter votre nouveau billet');
+			$messageError = "le billet n'a pu être modifié";
+			require ('view/frontend/connect_errorView.php');
 		}
 		else
 		{
@@ -207,7 +214,9 @@ class BackController
 
 		if ($affectedLines === false)
 		{
-			die('impossible d ajouter votre nouveau billet');
+			//die('impossible d ajouter votre nouveau billet');
+			$messageError = "le commentaire n'a pu être approuvé";
+			require ('view/frontend/connect_errorView.php');
 		}
 		else
 		{

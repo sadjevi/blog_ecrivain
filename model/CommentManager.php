@@ -1,6 +1,10 @@
 <?php
 
-class CommentManager
+require_once ('model/BddManager.php');
+
+
+
+class CommentManager extends BddManager
 {
 		public function getComments($postid)
 		/**
@@ -93,23 +97,5 @@ class CommentManager
 			return $cNbr;
 		}
 		
-
-		private function dbConnect()
-		/**
-		*
-		* method to connect database 
-		*/
-		{
-		    try
-		    {
-		        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
-		        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		        return $db;
-		    }
-		    catch(Exception $e)
-		    {
-		        die('Erreur : '.$e->getMessage());
-		    }
-		}
 }
 

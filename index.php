@@ -43,7 +43,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -57,12 +57,12 @@ switch ($action)
 			}
 			else 
 			{
-				echo 'Erreur: le commentaire n a pu être ajouté, tous les champs ne sont pas remplis !';
+				$controller->getErrorView('Erreur: le commentaire n a pu être ajouté, tous les champs ne sont pas remplis !');
 			}
 		}		
 		else
 		{
-			echo 'Erreur: aucun identifiant de billet  envoyé';
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé');
 		}
 	break;
 
@@ -73,7 +73,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -115,7 +115,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -127,7 +127,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -142,7 +142,7 @@ switch ($action)
 		}
 		else
 		{
-			echo 'erreur le billet n a pu être enregistré';
+			$controller->getErrorView('erreur le billet n a pu être enregistré');
 		}
 	break;
 
@@ -154,7 +154,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -165,7 +165,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -187,7 +187,7 @@ switch ($action)
 		}
 		else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -199,7 +199,7 @@ switch ($action)
 		}
 			else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 
@@ -211,12 +211,12 @@ switch ($action)
 		}
 			else 
 		{
-			echo 'Erreur: aucun identifiant de billet envoyé'; 
+			$controller->getErrorView('Erreur: aucun identifiant de billet envoyé'); 
 		}
 	break;
 		
 	default:
-       		$controller->getErrorView("404 - Oupp, cette page n'existe pas, désolé, Bye Bye !");
+       		$controller->getErrorView("Erreur 404 - Oups, cette page n'existe pas, désolé, Bye Bye !");
 }
 
 	

@@ -1,7 +1,10 @@
 <?php
 
+require_once ('model/BddManager.php');
 
-class PostManager
+
+
+class PostManager extends BddManager
 
 
 {	/**
@@ -121,24 +124,6 @@ class PostManager
 		return $affectedLines;
 	}
 	
-	/**
-	*
-	* method to connect database 
-	*/
-	private function dbConnect()
 	
-	{
-	    try
-	    {
-	        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
-	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        return $db;
-	    }
-	    catch(Exception $e)
-	    {
-	        die('Erreur : '.$e->getMessage());
-	    }
-	}
-
 }
 

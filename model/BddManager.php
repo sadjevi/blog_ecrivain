@@ -1,13 +1,14 @@
 <?php
 
 
-abstract class BddManager {
+abstract class BddManager 
+{
 
-/**
+	/**
 	*
 	* method to connect database 
 	*/
-	private function dbConnect()
+	protected function dbConnect()
 	
 	{
 	    try

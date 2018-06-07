@@ -50,22 +50,17 @@ class BackController
 		{
 			if($pass && $_POST['login'] == $log['login']) 
 			{
-				session_start();
-
 				$_SESSION['auth'] = true;
-	        	$_SESSION['id'] = $log['id'];
-	        	$_SESSION['login'] = $log['login'];
-	        	$_SESSION['password'] = $log['password'];
+	        		$_SESSION['id'] = $log['id'];
+	        		$_SESSION['login'] = $log['login'];
+	        		$_SESSION['password'] = $log['password'];
 			} 
 			else
 			{
 				echo 'erreur de login ou de mot de passe';
+				// add the errorView
 			}
-
-			
-		}
-		
-		
+		}		
 		header('location: index.php?action=adminListPosts');
 	}
 

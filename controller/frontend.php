@@ -14,8 +14,9 @@ class Frontend
 	*
 	* method to redirect user to error page when admin informations are not set
 	*/
-	public function getErrorView()
+	public function getErrorView($message = null)
 	{
+		$messageError = $message;
 		require ('view/frontend/connect_errorView.php');
 	}
 

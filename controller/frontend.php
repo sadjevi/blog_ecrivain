@@ -75,7 +75,10 @@ class Frontend
 
 		if ($affectedLines === false)
 		{
-			die('impossible d ajouter votre commentaire');
+			//die('impossible d ajouter votre commentaire');
+			$messageError = "impossible d ajouter votre commentaire";
+			require ('view/frontend/connect_errorView.php');
+
 		}
 		else
 

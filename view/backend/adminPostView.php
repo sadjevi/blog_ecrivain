@@ -10,32 +10,34 @@
 <p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
 
 
-<div id="commentsheet">
+<div class="commentsheet">
 
-	<div id="billets2">
+	<div class="billets2">
 	
-		<div id="btitle">
+		<div class="btitle">
 			<h3>
 			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div id="posts"
+		<div class="posts"
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
 		</div> 
 	</div>
 
 	
+
 	
 	
-	<div id="form">	
+	
+	<div class="form">	
 		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
 
-		   	<div id=formtitle>
+		   	<div class=formtitle>
 		    	<legend>Ajouter un commentaire</legend> 
 		    </div>
 
-		    <div id=author>
+		    <div class=author>
 	       		<label for="auteur">auteur</label><br/>
 	       	</div>
 
@@ -59,12 +61,12 @@
        
    </p>
 
-<div id='comments'>
-	<div id="ctitle">
+<div class='comments'>
+	<div class="ctitle">
 		<h3>Commentaires</h3>
 	</div>
 
-	<div id="content">
+	<div class="content">
 		<?php while($comment = $comments->fetch()): ?>
 
 		</p>

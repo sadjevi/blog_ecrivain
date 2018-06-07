@@ -10,14 +10,14 @@
 
 	<body>
 
-		<div id="bloc_page">
+		<div class="bloc_page">
 			<header>
-				<div id="titre principal">
-					<div id="banniere">
-						<div id="">
+				<div class="titre principal">
+					<div class="banniere">
+						<div class="">
 	                        <img src="" alt="" />   
 	                    </div>
-	                    <div id="titre2">
+	                    <div class="titre2">
 							<h1>UN BILLET SIMPLE POUR L'ALASKA</h1>
 							<h2>by Jean Forteroche</h2>
 						</div>
@@ -40,12 +40,12 @@
 			<?= $content; ?>  <!-- content here -->
 
 			<footer>
-				<div id="foot">
-					<div id="ftitle">
+				<div class="foot">
+					<div class="ftitle">
 						<h3>FIND ME ELSEWHERE</h3>
 					</div>
-					<div id="bottom">
-						<div id="infos">
+					<div clss="bottom">
+						<div class="infos">
 							<h3>Infos:</h3>
 							<p>Le Blog  de l'écrivain 'by Jean Forteroche' est un projet réalisé dans le cadre d'une formation OpenClassrooms</p>
 						</div> 
@@ -57,7 +57,7 @@
 							<p><img src="public/images/google.png" alt="google" />Google +</p>
 									
 						</div>
-						<div id="logo">
+						<div class="logo">
 							<h3>Built by:</h3>
 							<p><img src="public/images/logo_digitalizer.png" alt="digitalizer" /></p>
 
@@ -68,7 +68,7 @@
 					<p><a href="index.php?action=getlogIn">administration du site</a></p>
 					 
 				</div>
-				<div id="final">
+				<div class="final">
 					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
 					<?php if(isset($_SESSION['auth'])):?>
 						Vous êtes connecté en tant que <?= $_SESSION['login'];?>

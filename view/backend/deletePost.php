@@ -12,26 +12,26 @@
 <p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
 
 
-<div id="btitle">
+<div class="btitle">
 			<h3>
 			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div id="posts"
+		<div class="posts"
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
 		
 		</div> 
 
-		<div id="form">	
+		<div class="form">	
 
 			<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
 
-			   	<div id=formtitle>
+			   	<div class=formtitle>
 			    	<legend>etes vous bien sur de vouloir supprimer ce billet?</legend> 
 			    </div>
 
-			    <div id=delete>
+			    <div class=delete>
 		       		<input type="submit" value="Oui je souhaite definitivement supprimmer ce billet" />
 		       	</div>		       				       		      
 			   

@@ -20,15 +20,15 @@
 
 
 
-	<div id="form">	
+	<div class="form">	
 
 		<form action="index.php?action=createPost" method="post">
 
-			<div id=formtitle>
+			<div class=formtitle>
 			   	<legend>editer un nouveau billet</legend> 
 			</div>
 
-			<div id=author>
+			<div class=author>
 		   		<label for="title">titre :</label><br/>
 		   </div>
 
@@ -49,13 +49,13 @@
 
 <?php while ($data = $lastPosts->fetch()): ?>
 
-	<div id="billets">
-		<div id="btitle">
+	<div class="billets">
+		<div class="btitle">
 			<h3>
 			<?= $data['title']; ?><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div id="posts"
+		<div class="posts"
 			<p>
 			<?= $data['post']; ?><br/> 
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>

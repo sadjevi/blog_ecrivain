@@ -9,14 +9,14 @@ body
     font-size: 0.9em;
 }
     
-#bloc_page
+.bloc_page
 {
     width:100%;
     margin:auto; 
     padding:0px;
 }
 
-#banniere
+.banniere
 {
 	
     height: 450px;
@@ -64,18 +64,18 @@ nav a
 {
 	color:white;
 }
-#start
+.start
 {
 	text-align: center;
 	margin-bottom:75px;
 	margin-top:75px;
 
 }
-#start h2
+.start h2
 {
 	color:#35A6FF;
 }
-#billets
+.billets
 {
 	box-shadow: 0px 4px 4px #1c1a19;
 	width:70%;
@@ -85,7 +85,7 @@ nav a
 	
 
 }
-#billets2
+.billets2
 {
 	box-shadow: 0px 4px 4px #1c1a19;
 	width:50%;
@@ -94,13 +94,13 @@ nav a
 	background-color: white;
 
 }
-#commentsheet
+.commentsheet
 {
 
 display: flex;
 
 }
-#form
+.form
 {
 
 	width:30%;
@@ -111,18 +111,18 @@ display: flex;
 
 	
 }
-#formtitle
+.formtitle
 {
 	text-align:center;
 	background-color:#35A6FF;
 
 }
-#form input
+.form input
 {
 
 }
 
-#btitle
+.btitle
 {
 	text-align: center;
 	background-color:#35A6FF;
@@ -130,7 +130,7 @@ display: flex;
 	font-size: small;
 	
 }
-#comments
+.comments
 {
 	background-color: white;
 	margin-bottom:100px;
@@ -139,7 +139,7 @@ display: flex;
 	box-shadow: 0px 4px 4px #1c1a19;
 	
 }
-#ctitle
+.ctitle
 {
 	padding-bottom:0.5%;
 	background-color:#35A6FF;
@@ -148,18 +148,18 @@ display: flex;
 	width:100%;
 	padding-top:3px;
 }
-#content
+.content
 {
 	padding-left:2%;
 	padding-right:5%;
 	padding-top:7%;
 	padding-bottom:3%;
 }
-#content strong
+.content strong
 {
 	color:#35A6FF;
 }
-#posts 
+.posts 
 {
 	text-align: center;
 }
@@ -199,32 +199,32 @@ footer h3, p
 }
 
 
-#bottom
+.bottom
 {
 	display:flex;
 	
 
 }
-#infos 
+.infos 
 {
 	width: 40%;
 	
 	display:flex;
 }
-#infos p
+.infos p
 {
 	padding-top:5px;
 }
-#infos h3
+.infos h3
 {
 	text-decoration: underline;
 }
-#logo img
+.logo img
 {
 	width:150px;
 	height:50px;
 }
-#logo
+.logo
 {
 	display:flex;
 	border-left:1px solid black;
@@ -235,12 +235,12 @@ footer h3, p
 
 
 }
-#logo p 
+.logo p 
 {
 	padding-bottom:10px;
 
 }
-#final
+.final
 {
 	border:2px solid white;
 	background-color: white;

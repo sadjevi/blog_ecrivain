@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
-<div id="start">
+<div class="start">
 
 	<h2>Carnet de voyages</h2>
 	<p>

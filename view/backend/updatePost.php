@@ -15,12 +15,12 @@
 <p> modification du billet</p>
 
 
-	<div id="btitle">
+	<div class="btitle">
 			<h3>
 			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 	</div>
-	<div id="posts"
+	<div class="posts"
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
 	</div> 

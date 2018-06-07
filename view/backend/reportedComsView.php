@@ -11,12 +11,12 @@
 <p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
 
 
-<div id='comments'>
-	<div id="ctitle">
+<div class='comments'>
+	<div class="ctitle">
 		<h3>Commentaires signalés</h3>
 	</div>
 
-	<div id="content">
+	<div class="content">
 		<?php while($rc = $rComments->fetch()): ?>
 
 		</p>

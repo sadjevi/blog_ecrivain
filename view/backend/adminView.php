@@ -8,7 +8,7 @@
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 
 
-<div id="start">
+<div class="start">
 
 	<h2>Carnet de voyages</h2>
 	<p>
@@ -49,13 +49,13 @@
 <?php while ($data = $posts->fetch()): ?>
 
 
-	<div id="billets">
-		<div id="btitle">
+	<div class="billets">
+		<div class="btitle">
 			<h3>
 			<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div id="posts"
+		<div class="posts"
 			<p>
 			<?= htmlspecialchars($data['post']); ?><br/> 
 			<em><a href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">Commentaires</a></em>

@@ -27,11 +27,10 @@
 
 				<nav>
 					
-					<p><a href="#">Accueil</a></p>
-					<p><a href="#">Jean FORTEROCHE</a></p>
-					<p><a href="#">Selection</a></p>
-					<p><a href="#">Recherche</a></p>
-					<p><a href="#">Mentions légales</a></p>
+					<p><a href="index.php?action=accueil">Accueil</a></p>
+					<p><a href="index.php?action=jf">Jean FORTEROCHE</a></p>
+					<p><a href="index.php?action=selection">Selection</a></p>
+					<p><a href="index.php?action=ml">Mentions légales</a></p>
 
 				</nav>
 			</header>

@@ -17,12 +17,14 @@
 
 	<div class="btitle">
 			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($post['id']); ?><br/>
+			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 	</div>
-	<div class="posts"
+	<div class="posts">
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
+			</p>
 	</div> 
 
 

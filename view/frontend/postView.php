@@ -13,13 +13,46 @@
 	
 		<div class="btitle">
 			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($post['id']); ?><br/>
+			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div class="posts"
+		<div class="posts">
 			<p>
 			<?= htmlspecialchars($post['post']); ?><br/>
+			</p>
 		</div> 
+	</div>
+
+
+
+	<div class='comments'>
+		<div class="ctitle">
+			<h3>Commentaires</h3>
+		</div>
+
+		<div class="content">
+			<?php while($comment = $comments->fetch()): ?>
+				<?php if(!$comment) :?>
+  				<?php echo 'aucun commentaire à afficher';?>
+				<?php endif;?>
+
+			</p>
+			<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
+			<?= htmlspecialchars($comment['content']); ?><br/>
+			
+
+
+			<em><a href="index.php?action=reportCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="signaler "value="signaler"></a></em>
+
+			<?else 
+			{
+				echo 'aucun commentaire à afficher';
+			}
+			?>
+
+			<?php endwhile; ?>
+		</div>
 	</div>
 
 	
@@ -48,32 +81,7 @@
 		</form>
 
 	</div>
-</div>
 
-				
-
-
-       
-   </p>
-
-<div class='comments'>
-	<div class="ctitle">
-		<h3>Commentaires</h3>
-	</div>
-
-	<div class="content">
-		<?php while($comment = $comments->fetch()): ?>
-
-		</p>
-		<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
-		<?= htmlspecialchars($comment['content']); ?><br/>
-		id <?= htmlspecialchars($comment['id']); ?><br/>
-
-
-		<em><a href="index.php?action=reportCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="signaler "value="signaler"</a></em>
-
-		<?php endwhile; ?>
-	</div>
 </div>
 		
 

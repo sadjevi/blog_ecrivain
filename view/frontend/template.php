@@ -44,7 +44,7 @@
 					<div class="ftitle">
 						<h3>FIND ME ELSEWHERE</h3>
 					</div>
-					<div clss="bottom">
+					<div class="bottom">
 						<div class="infos">
 							<h3>Infos:</h3>
 							<p>Le Blog  de l'écrivain 'by Jean Forteroche' est un projet réalisé dans le cadre d'une formation OpenClassrooms</p>
@@ -65,7 +65,9 @@
 
 
 					</div>
+					<div class="admin">
 					<p><a href="index.php?action=getlogIn">administration du site</a></p>
+					</div>
 					 
 				</div>
 				<div class="final">

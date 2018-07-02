@@ -1,25 +1,28 @@
 <?php
 
-
-abstract class BddManager 
+abstract class BddManager
 {
+
 
 	/**
 	*
 	* method to connect database 
 	*/
+	
 	protected function dbConnect()
 	
 	{
+		
 	    try
-	    {
-	        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
-	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        return $db;
+	    {	
+
+	       require('config.php');
+	       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	       return $db;
 	    }
 	    catch(Exception $e)
 	    {
-	        die('Erreur : '.$e->getMessage());
+	       die('Erreur : '.$e->getMessage());
 	    }
 	}
 

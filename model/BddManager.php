@@ -13,7 +13,7 @@ abstract class BddManager
 	{
 	    try
 	    {
-	        $db = new PDO('mysql:host=localhost:8889;dbname=P3;charset=utf8', 'root', 'root');
+	        require('config.php');
 	        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        return $db;
 	    }

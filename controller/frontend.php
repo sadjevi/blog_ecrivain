@@ -23,6 +23,45 @@ class Frontend
 
 	/**
 	*
+	* method to return to home page
+	*/
+	public function accueil()
+	{
+		$postManager = new PostManager();
+		$sheetnbr    = $postManager->getSheetNbr();
+		$posts       = $postManager->getPosts();
+		require ('view/frontend/postsListView.php');
+	}
+
+	/**
+	*
+	* method to display legals mentions
+	*/
+	public function ml()
+	{
+		require ('view/frontend/mentions_legales.php');
+	}
+
+	/**
+	*
+	* method to show jean Forteroche bio
+	*/
+	public function jf()
+	{
+		require ('view/frontend/jean_forteroche.php');
+	}
+
+	/**
+	*
+	* method to display a selection of alaska pics
+	*/
+	public function selection()
+	{
+		require ('view/frontend/selection.php');
+	}
+
+	/**
+	*
 	* method to retrieve entire post
 	*/
 	public function getEntirePost($id)
@@ -59,6 +98,12 @@ class Frontend
 
 		$post           = $postManager->getPost($id);
 		$comments       = $commentManager->getComments($id);
+
+		if($comments === false)
+		{
+			echo'aucun comentaires à afficher';
+		}
+
 
 		require_once('view/frontend/postView.php');
 	}

@@ -12,32 +12,36 @@
 <p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
 
 
-<div class="btitle">
-			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
-			</h3>
-		</div>
-		<div class="posts"
-			<p>
-			<?= htmlspecialchars($post['post']); ?><br/>
-		
-		</div> 
+<div class="billets">
+	<div class="btitle">
+		<h3>
+		Chapter <?= htmlspecialchars($post['id']); ?><br/>
+		<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
+		</h3>
+	</div>
+	<div class="posts">
+		<p>
+		<?= htmlspecialchars($post['post']); ?><br/>
+		</p>
+	
+	</div> 
+</div>
 
-		<div class="form">	
+<div class="form2">	
 
-			<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
+	<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
 
-			   	<div class=formtitle>
-			    	<legend>etes vous bien sur de vouloir supprimer ce billet?</legend> 
-			    </div>
+	   	<div class=formtitle2>
+	    	<legend>êtes vous bien sur de vouloir supprimer ce billet?</legend> 
+	    </div>
 
-			    <div class=delete>
-		       		<input type="submit" value="Oui je souhaite definitivement supprimmer ce billet" />
-		       	</div>		       				       		      
-			   
-			</form>
+	    <div class=delete>
+       		<input type="submit" value="Oui je souhaite definitivement supprimmer ce billet" />
+       	</div>		       				       		      
+	   
+	</form>
 
-		</div>
+</div>
 
 
 

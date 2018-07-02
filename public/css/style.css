@@ -1,12 +1,25 @@
 
+@font-face {
+font-family: 'Adobe Garamond Pro Bold Italic';
+font-style: normal;
+font-weight: normal;
+src: local('Adobe Garamond Pro Bold Italic'), url('AGaramondPro-BoldItalic.woff') format('woff');
+}
+
 
 
 body
 {
 	 
     background-color:#d4d7d8;
-    font-family: 'Adobe Garamond Pro Bold Italic', Georgia, Times New Roman;
+    font-family: Adobe Garamond Pro Bold Italic, Georgia, Times New Roman;
     font-size: 0.9em;
+    
+}
+
+.nouveautitre
+{
+	background-color: white;
 }
     
 .bloc_page
@@ -14,6 +27,52 @@ body
     width:100%;
     margin:auto; 
     padding:0px;
+}
+.chaps 
+{
+	background-color: whitesmoke;
+	margin: 60px;
+	padding: 40px;
+}
+.chapcontent
+{
+	font-size: 1em;
+
+}
+.chaptitle
+{
+	text-align: center;
+    color: #35A6FF;
+}
+.nouveautitre
+{
+	text-align: center;
+}
+.container-fluid 
+{
+	padding: 0;
+	background-color: white;
+
+}
+.container
+{
+	padding: 50px;
+	margin-bottom: 60px;
+	background-color: white;
+}
+.container-fluid  img
+{
+	width: 100%;
+
+}
+
+.fimg 
+{
+	background-image: url(../images/rainbow.jpg);
+	height:450px;
+	background-repeat: no-repeat;
+	width: 100%;
+
 }
 
 .banniere
@@ -27,7 +86,7 @@ body
     
     width:100%;
     background-size:100% ;
-    color:white;
+   
     padding-bottom:20px;
     font-size: small;
 
@@ -35,21 +94,114 @@ body
 nav
 {
 	
-	background-color: black;
-	width:100%;
+	text-align: center;
+    display: flex;
+    background-color: black;
+    height: 50px;
+    font-size: 1.5em;
+    padding: 15px;
+
+}
+	
+	
+	
+	
+}
+
+.titre2
+{
+	padding-left: 30px;
+	color: white;
+	
+}
+
+.part1
+{
 	display: flex;
-	justify-content: space-between;
-	padding-top:15px;
+	margin-top: 150px;
+	margin-left: 35px;
+	padding: 20px;
+}
+.part2
+{
+	margin-left: 35px;
+	padding-bottom: 15px;
+}
+
+.part2 p
+{
+	font-size: 17px;
+}
+.bio
+{
+	background-color: white;
+}
+.bioftext p
+{
+	margin-top: 335px;
+    font-size: 17px;
+    margin-left: 30px;
+}
+.biopic img
+{
+	    height: 500px;
+}
+.slpics
+{
 	
-	
+    
+}
+.firstrow img
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 300px;
+	max-height: 300px;
+	max-width: 421px;
+	min-width: 300px;
+    
+}
+.firstrow 
+{
+	display: flex;
+   }
+
+.secndrow
+{
+	display: flex;
+}
+
+.secndrow img
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 300px;
+	max-height: 300px;
+	max-width: 426px;
+    min-width: 410px;
+}
+.ml
+{
+	background-color: white;
+    margin: 40px;
+    padding: 30px;
+}
+.admininfos
+{
+	background-color: white;
+    padding: 20px;
+    margin-bottom: 70px;
+}
 }
 nav p
 {
 	
     display: flex;
-    height:50px;
-    padding-top:20px;
+    height:20px;
     color:white;
+    padding:10px 50px 10px 50px;
    
    
    
@@ -63,6 +215,8 @@ nav a:hover
 nav a
 {
 	color:white;
+	text-decoration: none;
+
 }
 .start
 {
@@ -80,31 +234,35 @@ nav a
 	box-shadow: 0px 4px 4px #1c1a19;
 	width:70%;
 	margin:auto;
-	height:150px;
+	height:auto;
 	background-color: white;
+
 	
 
 }
 .billets2
 {
 	box-shadow: 0px 4px 4px #1c1a19;
-	width:50%;
+	width:70%;
+	margin-bottom: 150px;
 	margin:auto;
-	height:150px;
+	height:auto;
+	margin-top: 120px;
 	background-color: white;
 
 }
 .commentsheet
 {
 
-display: flex;
+
 
 }
 .form
 {
 
-	width:30%;
-	margin-right:10%;
+	width: 70%;
+    margin: auto;
+    margin-top: 100px;
 	border:1px solid black;
 	background-color:white;
 	box-shadow: 0px 4px 4px #1c1a19;
@@ -117,11 +275,94 @@ display: flex;
 	background-color:#35A6FF;
 
 }
+
+.formtitle2
+{
+	width: 30%;
+	text-align:center;
+	background-color:#35A6FF;
+    margin: auto;
+}
+.form textarea
+{
+	width: 90%;
+	margin-left: 20px;
+}
 .form input
 {
+	width: 15%;
+	margin-left: 20px;
+	margin-bottom: 15px;
 
 }
+.form2 input
+{
+	width: 30%;
+	margin-left: 20px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
 
+.form label
+{
+	margin-left: 20px;
+}
+
+.upform textarea
+{
+	margin-left: 10%;
+    width: 80%;
+}
+
+.addbutton input
+{
+	background-color: dimgray;
+    color: white;
+    padding: auto;
+    padding: 8px;
+}
+.delbutton input
+{
+	height: 45px;
+    background-color: red;
+    padding: 8px;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.updtbutton input
+{
+	height: 45px;
+    background-color: #35A6FF;
+    padding: 8px;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.combutton input
+{
+	height: 45px;
+    background-color: darkgrey;
+    padding: 8px;
+    color: white;
+    border-color: white;
+    width: 20%;
+    text-align: center;
+}
+.suitebutton input
+{
+	height: 45px;
+    background-color: black;
+    padding: 8px;
+    color: white;
+    border-color: white;
+    width: 20%;
+}
+.suitebutton
+{
+	text-align: center;
+	padding-top: 30px;
+}
 .btitle
 {
 	text-align: center;
@@ -133,9 +374,10 @@ display: flex;
 .comments
 {
 	background-color: white;
+	margin:auto;
 	margin-bottom:100px;
-	margin-top:100px;
-	width:50%;
+	margin-top: 100px;
+	width:70%;
 	box-shadow: 0px 4px 4px #1c1a19;
 	
 }
@@ -161,7 +403,8 @@ display: flex;
 }
 .posts 
 {
-	text-align: center;
+	margin: 20px;
+	padding: 10px;
 }
 
 
@@ -186,6 +429,7 @@ footer h3, p
 	display: flex;
 	justify-content: center;
 
+
 	
 
 	width : 100%;
@@ -202,9 +446,11 @@ footer h3, p
 .bottom
 {
 	display:flex;
+
 	
 
 }
+
 .infos 
 {
 	width: 40%;
@@ -218,6 +464,8 @@ footer h3, p
 .infos h3
 {
 	text-decoration: underline;
+	margin: 16px;
+	font-size: 15px;
 }
 .logo img
 {
@@ -227,13 +475,27 @@ footer h3, p
 .logo
 {
 	display:flex;
-	border-left:1px solid black;
+	
 	border-bottom:none;
 	border-right:none;
 	width: 30%;
 	margin-bottom:35px;
-
-
+}
+.pagination
+{
+	font-size: 2em;
+	padding-left: 44%
+}
+.foot
+{
+	
+    padding: 20px 10px 0px 10px;
+    height: 150px;
+    background-color: rgba(43, 60, 85, 0.96);
+}
+.admin
+{
+	 margin: -45px;
 }
 .logo p 
 {

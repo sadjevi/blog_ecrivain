@@ -16,7 +16,8 @@
 	
 		<div class="btitle">
 			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($post['id']); ?><br/>
+			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 		</div>
 		<div class="posts"
@@ -72,10 +73,10 @@
 		</p>
 		<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
 		<?= htmlspecialchars($comment['content']); ?><br/>
-		id <?= htmlspecialchars($comment['id']); ?><br/>
+		
 
 
-		<em><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"</a></em>
+		<em><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"></a></em>
 
 		<?php endwhile; ?>
 	</div>

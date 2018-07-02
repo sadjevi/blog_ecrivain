@@ -12,7 +12,7 @@
 
 
 
-<p> Ajout d'un nouveau billet</p>
+<h3 style="text-align:center">Ajout d'un nouveau billet</h3>
 
 
 
@@ -44,7 +44,7 @@
 	</div>
 
 
-<h3>vos bilets récents</h3>
+<h3 style="text-align:center">vos bilets récents</h3>
 
 
 <?php while ($data = $lastPosts->fetch()): ?>
@@ -52,12 +52,13 @@
 	<div class="billets">
 		<div class="btitle">
 			<h3>
-			<?= $data['title']; ?><em> le <?= $data['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($data['id']); ?><br/>
+			<?= htmlspecialchars($data['title']); ?><br/><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div class="posts"
+		<div class="posts">
 			<p>
-			<?= $data['post']; ?><br/> 
+			<?= htmlspecialchars($data['post']); ?><br/> 
 			<em><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>

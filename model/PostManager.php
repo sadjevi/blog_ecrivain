@@ -94,6 +94,8 @@ class PostManager extends BddManager
 		$affectedLines = $newpost->execute(array($title, $post));
 
 		return $affectedLines;
+		
+
 	}
 
 	/**

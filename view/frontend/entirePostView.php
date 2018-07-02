@@ -1,7 +1,15 @@
 <?php $title = 'mes posts'; ?><!-- sheet title here -->
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
+<nav>
+					
+					<p><a href="index.php?action=accueil">Accueil</a></p>
+					<p><a href="index.php?action=jf">Jean FORTEROCHE</a></p>
+					<p><a href="index.php?action=selection">Selection</a></p>
+					<p><a href="index.php?action=ml">Mentions légales</a></p>
 
+				</nav>
+			</header>
 
 
 
@@ -11,13 +19,16 @@
 	<div class="billets">
 		<div class="btitle">
 			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($post['id']); ?><br/>
+			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div class="posts"
+		<div class="posts">
 			<p>
 			<?= htmlspecialchars($post['post']); ?> ... <br/> 
-			<em><a href="index.php?action=post&amp;id=<?= $post['id']; ?>">Commentaires</a></em>
+			<div class="combutton">
+				<a class="btn btn-primary" href="index.php?action=post&amp;id=<?= $post['id']; ?>">Commentaires <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+			</div>
 			</p>
 		</div>
 		

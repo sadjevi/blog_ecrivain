@@ -14,37 +14,42 @@
 
 <p> modification du billet</p>
 
-
-	<div class="btitle">
-			<h3>
-			<?= htmlspecialchars($post['title']); ?><em> le <?= $post['creation_date_fr']; ?></em>
-			</h3>
-	</div>
-	<div class="posts"
-			<p>
-			<?= htmlspecialchars($post['post']); ?><br/>
+	<div class="billets">
+		<div class="btitle">
+				<h3>
+				Chapter <?= htmlspecialchars($post['id']); ?><br/>
+				<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
+				</h3>
+		</div>
+		<div class="posts">
+				<p>
+				<?= htmlspecialchars($post['post']); ?><br/>
+				</p>
+		</div>
 	</div> 
 
 
 
 
+	<div class="upform">
+		<form action="index.php?action=updatePost" method="post">
 
-	<form action="index.php?action=updatePost" method="post">
+			<input type="hidden" name="id" value="<?= $post['id'];?>"/>
 
-		<input type="hidden" name="id" value="<?= $post['id'];?>"/>
+		   	<label for="title">Nouveau titre :</label><br/>
+	   		<input type="text" name="title" id="title" value="<?= $post['title'];?>"/><br/>
 
-	   	<label for="title">Nouveau titre :</label><br/>
-   		<input type="text" name="title" id="title" value="<?= $post['title'];?>"/><br/>
-
-   		<label for="post">Nouveau billet </label><br /><br/>
-       
-       	<textarea name="post" id="post" rows="10" cols="50">
-       		<?= $post['post'];?>
-       	
-       </textarea><br/>
-
-       	<input type="submit" value="Envoyer" /> 
-    </form>
+	   		<label for="post">Nouveau billet </label><br /><br/>
+	       
+	       	<textarea name="post" id="post" rows="10" cols="50">
+	       		<?= $post['post'];?>
+	       	
+	       	</textarea><br/>
+	      	<div class="updbutton">
+	       		<input type="submit" value="Enregistrer les modifications" /> 
+	       	</div>
+	    </form>
+	</div>
 
 
 

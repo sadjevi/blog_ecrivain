@@ -17,9 +17,25 @@ $backController = new BackController();
 
 
 switch ($action) 
-{
+{											
+											// frontend
 
-												// frontend
+	case 'jf':
+		$controller->jf();
+	break;
+
+	case 'accueil':
+		$controller->accueil();
+	break;
+
+	case 'selection':
+		$controller->selection();
+	break;
+
+	case 'ml':
+		$controller->ml();
+	break;	
+											
 	case 'listPosts': 
 		$controller->listPosts();
 	break;

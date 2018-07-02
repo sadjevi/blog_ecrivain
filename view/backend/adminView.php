@@ -20,25 +20,32 @@
 
 </div>
 
+<div class="admininfos">
+	<p>Bonjour <?= $_SESSION['login'];?><br/>
 
-<p>Bonjour <?= $_SESSION['login'];?><br/>
+	 <?php
 
- <?php
+	  if($cNbr >= 1)
+	  {
+	  	echo '<em><a href="index.php?action=getRepComs">vous avez ' . $cNbr . ' messages à moderer </a></em><br/>' ;
+	  }
+	  else
+	  {
+	  	echo 'vous n avez aucun message à moderer <br/>';
+	  } 
 
-  if($cNbr >= 1)
-  {
-  	echo '<em><a href="index.php?action=getRepComs">vous avez ' . $cNbr . ' messages à moderer </a></em><br/>' ;
-  }
-  else
-  {
-  	echo 'vous n avez aucun message à moderer <br/>';
-  } 
+	 
+	 ?>
+	</p>
 
- 
- ?>
+	<div class="addbutton">
+		<p>
+		<em><a href="index.php?action=listLastPosts"><input type="button" name="Création d'un nouvel article"value="Création d'un nouvel article"></a></em><br/>
+		</p>
 
-
-<em><a href="index.php?action=listLastPosts">Création d'un nouvel article</a></em><br/>
+	</div>
+</div>
+	
 
 
 
@@ -55,15 +62,27 @@
 			<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
-		<div class="posts"
+		<div class="posts">
 			<p>
 			<?= htmlspecialchars($data['post']); ?><br/> 
-			<em><a href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">Commentaires</a></em>
 			</p>
 		</div>
-		<p><a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>">modifier</a></em></p>
-		<p><a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>">supprimer</a></em></p>
-		
+		<div class="combutton">
+			<p>
+			<em><a href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Commentaires"value="Commentaires"></a></em><br/>
+			</p>
+		</div>
+
+		<div class="updtbutton">
+			<p>
+			<a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Modifier"value="Modifier"></a><br/>
+			</p>
+		</div>
+		<div class="delbutton">
+			<p>
+			<a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Supprimer"value="Supprimer"></a><br/>
+			</p>
+		</div>
 	</div>
 
 <?php endwhile; ?>

@@ -13,12 +13,12 @@ class PostManager extends BddManager
 	*/
 	public function getSheetNbr()
 	{
-		$db   = $this->dbConnect();
-		$retour = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
-		$donnees = $retour->fetch();
-		$nbr = $donnees['posts_nb'];
+		$db            = $this->dbConnect();
+		$retour        = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
+		$donnees       = $retour->fetch();
+		$nbr           = $donnees['posts_nb'];
 		$postspersheet = 5;
-		$sheetnbr  = ceil($nbr / $postspersheet);
+		$sheetnbr      = ceil($nbr / $postspersheet);
 
 		return $sheetnbr;
 	}
@@ -29,7 +29,7 @@ class PostManager extends BddManager
 	*/
 	public function getLastPosts()
 	{
-		$db  = $this->dbConnect();
+		$db        = $this->dbConnect();
 		$lastPosts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT 0, 3');
 
 		return $lastPosts;
@@ -41,12 +41,12 @@ class PostManager extends BddManager
 	*/
 	public function getPosts()
 	{
-		$db   = $this->dbConnect();
-		$retour = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
-		$donnees = $retour->fetch();
-		$nbr = $donnees['posts_nb'];
+		$db            = $this->dbConnect();
+		$retour        = $db->query('SELECT COUNT(*) AS posts_nb FROM posts');
+		$donnees       = $retour->fetch();
+		$nbr           = $donnees['posts_nb'];
 		$postspersheet = 5;
-		$sheetnbr  = ceil($nbr / $postspersheet);
+		$sheetnbr      = ceil($nbr / $postspersheet);
 
 		if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
 		{
@@ -61,8 +61,8 @@ class PostManager extends BddManager
 		     $currentsheet = 1;    
 		}
 	 
-		$firstpost=($currentsheet-1)*$postspersheet;
-		$posts = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT ' . $firstpost .',' . $postspersheet .' ');
+		$firstpost = ($currentsheet-1)*$postspersheet;
+		$posts     = $db->query('SELECT id, title, post, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date  DESC LIMIT ' . $firstpost .',' . $postspersheet .' ');
 		
 		return $posts;
 	}
@@ -124,6 +124,29 @@ class PostManager extends BddManager
 		$affectedLines = $erasedPost->execute(array($id));
 
 		return $affectedLines;
+	}
+
+	/**
+	*
+	* method to retrieve entries in order to create or update a post
+	*@params $datas
+	*/
+	public function retrieve($datas)
+	{
+		$db    = $this->dbConnect();
+		$id    = $datas['id'];
+		$title = $datas['title'];
+		$post  = $datas['post'];
+
+		if ($datas['id'] == null)
+		{
+			$this->addPost($title, $post);
+		}
+		else
+		{
+			$this->adjustPost($id, $title, $post);
+		}
+		
 	}
 	
 	

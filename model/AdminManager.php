@@ -11,7 +11,7 @@ class AdminManager extends BddManager
 	*/
 	public function getLogin()
 	{
-		$db = $this->dbconnect();
+		$db  = $this->dbconnect();
 		$req = $db->query('SELECT * FROM administration');
 		$log = $req->fetch();
 

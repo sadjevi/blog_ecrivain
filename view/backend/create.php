@@ -22,7 +22,7 @@
 
 	<div class="form">	
 
-		<form action="index.php?action=createPost" method="post">
+		<form action="index.php?action=save" method="post">
 
 			<div class=formtitle>
 			   	<legend>editer un nouveau billet</legend> 
@@ -31,14 +31,17 @@
 			<div class=author>
 		   		<label for="title">titre :</label><br/>
 		   </div>
+		   <input type="hidden" name="datas[id]" value= "<?= $datas['id']; ?>"/>
 
-	   		<input type="text" name="title" id="title" /><br/>
+	   		<input type="text" name="datas[title]" id="title" value= "<?= $datas['title']; ?>"/><br/>
 
 	   		<label for="post">écrire votre contenu ici</label><br /><br/>
 	       
-	       	<textarea class="tinymce" name="post" id="post" rows="10" cols="50"></textarea><br/><br/>
+	       	<textarea class="tinymce" name="datas[post]" id="post" rows="10" cols="50">
+	       		<?= $datas['post'];?>
+	       	</textarea><br/><br/>
 
-	       	<input type="submit" value="Envoyer" /> 
+	       	<input type="submit" value="<?= $button; ?>" /> 
 
 	    </form>
 	</div>

@@ -31,23 +31,27 @@
 
 
 
-	<div class="upform">
-		<form action="index.php?action=updatePost" method="post">
+	<div class="upform">	
 
-			<input type="hidden" name="id" value="<?= $post['id'];?>"/>
+		<form action="index.php?action=save" method="post">
 
-		   	<label for="title">Nouveau titre :</label><br/>
-	   		<input type="text" name="title" id="title" value="<?= $post['title'];?>"/><br/>
+			<div class="formtitle">
+			   	<legend>editer un  billet</legend> 
+			</div>
+		   
+		   <input type="hidden" name="datas[id]" value= "<?= $post['id']; ?>"/>
 
-	   		<label for="post">Nouveau billet </label><br /><br/>
+	   		<input type="text" name="datas[title]" id="title" value= "<?= $post['title']; ?>"/><br/>
+
+	   		<label for="post"> votre contenu </label><br /><br/>
 	       
-	       	<textarea name="post" id="post" rows="10" cols="50">
+	       	<textarea class="tinymce" name="datas[post]" id="post" rows="10" cols="50">
 	       		<?= $post['post'];?>
+	       	</textarea><br/><br/>
 	       	
-	       	</textarea><br/>
-	      	<div class="updbutton">
-	       		<input type="submit" value="Enregistrer les modifications" /> 
-	       	</div>
+
+	       	<input type="submit" value="<?= $button; ?>" /> 
+
 	    </form>
 	</div>
 

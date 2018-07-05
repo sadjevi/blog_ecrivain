@@ -15,7 +15,7 @@ class BackController
 	public function getlogIn()
 	{
 		$adminManager = new AdminManager();
-		$log = $adminManager->getLogin();
+		$log 		  = $adminManager->getLogin();
 
 		require_once('view/frontend/authView.php');
 	}
@@ -39,9 +39,8 @@ class BackController
 	{
 		
 		$adminManager = new AdminManager();
-		$log    = $adminManager->getlogin();
-
-		$pass = password_verify($_POST['password'], $log['password']);
+		$log          = $adminManager->getlogin();
+		$pass         = password_verify($_POST['password'], $log['password']);
 
 		if ($pass === false)
 		{
@@ -53,14 +52,14 @@ class BackController
 		{
 			if($pass && $_POST['login'] == $log['login']) 
 			{
-				$_SESSION['auth'] = true;
-	        		$_SESSION['id'] = $log['id'];
-	        		$_SESSION['login'] = $log['login'];
-	        		$_SESSION['password'] = $log['password'];
+				$_SESSION['auth']     = true;
+        		$_SESSION['id']       = $log['id'];
+        		$_SESSION['login']    = $log['login'];
+        		$_SESSION['password'] = $log['password'];
 			} 
 			else
 			{
-				$messageError = "erreur de login et/ou de mot de passe";
+				$messageError         = "erreur de login et/ou de mot de passe";
 				require ('view/frontend/connect_errorView.php');
 			}
 		}		
@@ -74,12 +73,12 @@ class BackController
 	public function adminListPosts()
 	{
 		
-		$postManager = new PostManager();
-		$commentManager =new CommentManager();
+		$postManager    = new PostManager();
+		$commentManager = new CommentManager();
 
-		$cNbr        = $commentManager->getRepComNb();
-		$sheetnbr    = $postManager->getSheetNbr();
-		$posts       = $postManager->getPosts();		
+		$cNbr           = $commentManager->getRepComNb();
+		$sheetnbr       = $postManager->getSheetNbr();
+		$posts          = $postManager->getPosts();		
 
 		
 		require_once('view/backend/adminView.php');
@@ -136,8 +135,12 @@ class BackController
 	*/
 	public function listLastPosts()
 	{
-		$postManager = new PostManager();
-		$lastPosts   = $postManager->getLastPosts();
+		$postManager    = new PostManager();
+		$lastPosts      = $postManager->getLastPosts();
+		$button 	    = 'enregistrer';
+		$datas['id']    = null;
+		$datas['title'] = null;
+		$datas['post']  = null;
 
 		require_once('view/backend/create.php');
 	}
@@ -210,7 +213,7 @@ class BackController
 	public function approveCom($id)
 	{
 		$commentManager = new CommentManager();
-		$affectedLines = $commentManager->approveComment($id);
+		$affectedLines  = $commentManager->approveComment($id);
 
 		if ($affectedLines === false)
 		{
@@ -236,7 +239,7 @@ class BackController
 		$postManager    = new PostManager();
 		$commentManager = new CommentManager();
 
-		$rComments = $commentManager->getReportedComments();
+		$rComments      = $commentManager->getReportedComments();
 
 		require_once('view/backend/reportedComsView.php');
 
@@ -269,6 +272,29 @@ class BackController
 	
 		header('location: index.php?action=adminListPosts');
 		
+	}
+
+	/**
+	*
+	* method to save entries in order to creation or modification 
+	*@params $datas
+	*/
+	public function save($datas)
+	{
+		$PostManager = new PostManager;
+		$datas		 = $PostManager->retrieve($datas);
+
+		if ($affectedLines === false)
+		{
+			
+			$messageError = "le billet n'a pu être enregistré";
+			require ('view/frontend/connect_errorView.php');
+		}
+		else
+		{
+			header('location: index.php?action=adminListPosts');
+		}
+
 	}
 }
 

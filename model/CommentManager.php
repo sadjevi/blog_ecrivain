@@ -53,9 +53,9 @@ class CommentManager extends BddManager
 
 		public function reportComment($id)
 		{
-			$db            = $this->dbConnect();
+			$db              = $this->dbConnect();
 			$reportComment   = $db->prepare('UPDATE comments SET reported = 1 WHERE id = ?');
-			$affectedLines = $reportComment->execute(array($id));
+			$affectedLines   = $reportComment->execute(array($id));
 
 			return $affectedLines;
 		}
@@ -63,16 +63,16 @@ class CommentManager extends BddManager
 
 		public function approveComment($id)
 		{
-			$db            = $this->dbConnect();
+			$db              = $this->dbConnect();
 			$reportComment   = $db->prepare('UPDATE comments SET reported = 0 WHERE id = ?');
-			$affectedLines = $reportComment->execute(array($id));
+			$affectedLines   = $reportComment->execute(array($id));
 
 			return $affectedLines;
 		}
 
 		public function getReportedComments()
 		{
-			$db       = $this->dbConnect();
+			$db        = $this->dbConnect();
 			$rComments = $db->query('SELECT id, post_id, author, content, DATE_FORMAT(created_date, \'%d/%m/%Y à %Hh%imin%ss\') AS created_date_fr FROM comments WHERE reported = 1 ORDER BY created_date DESC');
 
 			return $rComments;
@@ -80,19 +80,19 @@ class CommentManager extends BddManager
 
 		public function delComment($id)
 		{
-			$db            = $this->dbConnect();
+			$db               = $this->dbConnect();
 			$erasedComment    = $db->prepare('DELETE from comments WHERE id = ?');
-			$affectedLines = $erasedComment->execute(array($id));
+			$affectedLines    = $erasedComment->execute(array($id));
 
 			return $affectedLines;
 		}
 
 		public function getRepComNb()
 		{
-			$db   = $this->dbConnect();
-			$retour = $db->query('SELECT COUNT(*) AS coms_nb FROM comments WHERE reported = 1');
+			$db      = $this->dbConnect();
+			$retour  = $db->query('SELECT COUNT(*) AS coms_nb FROM comments WHERE reported = 1');
 			$donnees = $retour->fetch();
-			$cNbr = $donnees['coms_nb'];
+			$cNbr    = $donnees['coms_nb'];
 
 			return $cNbr;
 		}

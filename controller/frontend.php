@@ -184,7 +184,7 @@ class Frontend
 	public function reportCom($id)
 	{
 		$commentManager = new CommentManager();
-		$affectedLines = $commentManager->reportComment($id);
+		$affectedLines  = $commentManager->reportComment($id);
 
 		if ($affectedLines === false)
 		{

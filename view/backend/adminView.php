@@ -59,7 +59,8 @@
 	<div class="billets">
 		<div class="btitle">
 			<h3>
-			<?= htmlspecialchars($data['title']); ?><em> le <?= $data['creation_date_fr']; ?></em>
+			Chapter <?= htmlspecialchars($data['id']); ?><br/>
+			<?= htmlspecialchars($data['title']); ?><br/><em> le <?= $data['creation_date_fr']; ?></em>
 			</h3>
 		</div>
 		<div class="posts">

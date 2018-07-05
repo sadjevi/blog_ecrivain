@@ -16,13 +16,13 @@
 				    <div class="row">
 				    	<div class="col-md-12">   		 
 				 			<div class="fimg"><img src="public/images/rainbow.jpg" alt="banniere">		
-				    			<div class="col-md-12">
-				    				<div class="nouveautitre">
-									    <div class="col-md-12"><h1>UN BILLET SIMPLE POUR L'ALASKA</h1></div>
-									    <div class="col-md-12"><h2>by Jean Forteroche</h2></div>
-									</div>
+				    		<div class="col-md-12">
+				    			<div class="nouveautitre">
+									<div class="col-md-12"><h1>UN BILLET SIMPLE POUR L'ALASKA</h1></div>
+									<div class="col-md-12"><h2>by Jean Forteroche</h2></div>
 								</div>
-							</div>			    				
+							</div>
+							</div>	
 				    	</div>
 
 		    		</div>

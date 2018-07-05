@@ -1,8 +1,8 @@
 <?php
 
-
-abstract class BddManager 
+abstract class BddManager
 {
+
 
 	/**
 	*
@@ -19,7 +19,7 @@ abstract class BddManager
 	    }
 	    catch(Exception $e)
 	    {
-	        die('Erreur : '.$e->getMessage());
+	       die('Erreur : '.$e->getMessage());
 	    }
 	}
 

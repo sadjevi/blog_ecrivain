@@ -10,7 +10,7 @@
 
 				</nav>
 			</header>
-	
+
 <div class="bio">
 
 

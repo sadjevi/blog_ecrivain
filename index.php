@@ -1,25 +1,17 @@
 <?php
 session_start();
 
-
 require('controller/frontend.php'); 
 require('controller/backend.php'); 
-
-
 
 $controller = new Frontend();
 $backController = new BackController();
 
-
-
 (isset($_GET['action'])) ? $action = $_GET['action'] : $action = 'listPosts';
-
-
 
 switch ($action) 
 {											
-											// frontend
-
+	// frontend controller
 	case 'jf':
 		$controller->jf();
 	break;
@@ -43,7 +35,8 @@ switch ($action)
 	case 'getEntirePost': 
 		if(isset($_GET['id']) && $_GET['id'] > 0)  
 		{
-			$controller->getEntirePost($_GET['id']); 
+			$id = $_GET['id'];
+			$controller->getEntirePost($id); 
 		}
 		else 
 		{	
@@ -55,7 +48,8 @@ switch ($action)
 	case 'post': 
 		if(isset($_GET['id']) && $_GET['id'] > 0) 
 		{
-			$controller->post($_GET['id']); 
+			$id = $_GET['id'];
+			$controller->post($id]); 
 		}
 		else 
 		{

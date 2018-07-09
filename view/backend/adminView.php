@@ -1,6 +1,4 @@
-
 <? require_once('session_verif.php') ?>
-
 
 
 <?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
@@ -45,6 +43,47 @@
 
 	</div>
 </div>
+
+<div class="container">
+	<?php while ($data = $posts->fetch()): ?>
+		<div class="chaps">
+			<div class="row">
+				<div class="billetscont">
+					<div class="col-md-6 col-lg-offset-3">
+						<div class="row">
+							<div class="chaptitle">
+								<div class="col-md-12">
+									<h3>
+									Chapter <?= htmlspecialchars($data['id']); ?><br/>
+									<?= htmlspecialchars($data['title']); ?><br/><em> le <?= $data['creation_date_fr']; ?></em>
+									</h3>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="chapcontent">
+								<div class="col-md-12">
+									<p>
+									<?= htmlspecialchars(substr($data['post'], 1, 300)); ?> ... <br/>
+									<div class="suitebutton">
+										<a class="btn btn-primary" href="index.php?action=getEntirePost&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+									</div>
+									<div class="updtbutton">
+										<a class="btn btn-dark" href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"> Modifier <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+									</div>
+									<div class="delbutton">
+										<a class="btn btn-danger" href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"> Supprimer <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endwhile;?>
+</div>
+
 	
 
 

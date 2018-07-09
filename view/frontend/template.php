@@ -5,8 +5,6 @@
     <title><?= $title; ?></title> <!-- title here -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css" />
-    
-    
 </head>
 
 	<body>
@@ -24,16 +22,20 @@
 							</div>
 							</div>	
 				    	</div>
-
 		    		</div>
 			    </div>
-				
-			
-				
-		
+			    <div class="container-fluid">
+					<nav class="row">
+						<div class="col-md-3"><a href="index.php?action=accueil">Accueil</a></div>
+						<div class="col-md-3"><a href="index.php?action=jf">Jean FORTEROCHE</a></div>
+						<div class="col-md-3"><a href="index.php?action=selection">Selection</a></div>
+						<div class="col-md-3"><a href="index.php?action=ml">Mentions légales</a></div>
+					</nav>
+				</div>			
+			</header>
+
 			<?= $content; ?>  <!-- content here -->
 			
-
 			<footer>
 				<div class="foot">
 					<div class="ftitle">
@@ -45,26 +47,20 @@
 							<p>Le Blog  de l'écrivain 'by Jean Forteroche' est un projet réalisé dans le cadre d'une formation OpenClassrooms</p>
 						</div> 
 						<div class="social">
-
 							<p><img src="public/images/facebook.png" alt="facebook" />Facebook</p>
 							<p><img src="public/images/insta.png" alt="insta" />Instagram</p>
 							<p><img src="public/images/twitter.png" alt="twitter" />twitter</p>
-							<p><img src="public/images/google.png" alt="google" />Google +</p>
-									
+							<p><img src="public/images/google.png" alt="google" />Google +</p>	
 						</div>
 						<div class="logo">
 							<h3>Built by:</h3>
 							<p><img src="public/images/logo_digitalizer.png" alt="digitalizer" /></p>
-
 						</div>
-
-
 					</div>
 					<div class="admin">
 					<p><a href="index.php?action=getlogIn">administration du site</a></p>
 					</div>	 
 				</div>
-
 				<div class="final">
 					<p>© 2018, UN BILLET SIMPLE POUR L'ALASKA by STEPHANE ADJEVI – ALL RIGHTS RESERVED – CREDITS</p>
 					<?php if(isset($_SESSION['auth'])):?>
@@ -73,9 +69,8 @@
 						<a href="index.php?action=getlogOut"><input type="button" name="Se deconnecter"value="Se deconnecter"></a><br/>
 					<?php endif;?>
 				</div>
-
 			</footer>
 		</div>
-		
 	</body>
+	
 </html>

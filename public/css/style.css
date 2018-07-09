@@ -39,6 +39,11 @@ body
 	font-size: 1em;
 
 }
+.entirechapcontent
+{
+	font-size: 1em;
+
+}
 .chaptitle
 {
 	text-align: center;
@@ -236,9 +241,6 @@ nav a
 	margin:auto;
 	height:auto;
 	background-color: white;
-
-	
-
 }
 .billets2
 {
@@ -250,6 +252,10 @@ nav a
 	margin-top: 120px;
 	background-color: white;
 
+}
+.legendclass
+{
+	color: #35A6FF;
 }
 .commentsheet
 {
@@ -314,6 +320,12 @@ nav a
     width: 80%;
 }
 
+.empty
+{
+	height: 75px; 
+
+}
+
 .addbutton input
 {
 	background-color: dimgray;
@@ -339,25 +351,13 @@ nav a
     border-color: white;
     width: 20%;
 }
-.combutton input
+.combutton 
 {
-	height: 45px;
-    background-color: darkgrey;
-    padding: 8px;
-    color: white;
-    border-color: white;
-    width: 20%;
+	
     text-align: center;
+    padding-top: 30px;
 }
-.suitebutton input
-{
-	height: 45px;
-    background-color: black;
-    padding: 8px;
-    color: white;
-    border-color: white;
-    width: 20%;
-}
+
 .suitebutton
 {
 	text-align: center;
@@ -370,6 +370,14 @@ nav a
 	color:white;
 	font-size: small;
 	
+}
+.newcomment
+{
+	margin-bottom: 13px
+}
+.newcombutton
+{
+	text-align: center;
 }
 .comments
 {

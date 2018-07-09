@@ -126,7 +126,7 @@ switch ($action)
 
 	case 'save':
 		$backController->save($_POST['datas']);
-	break
+	break;
 
 	case 'adminPost': 
 		if(isset($_GET['id']) && $_GET['id'] > 0) 

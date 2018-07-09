@@ -1,97 +1,108 @@
 <?php $title = 'mes posts'; ?><!-- sheet title here -->
 
-<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
+<?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->	
 
-<nav>
-					
-					<p><a href="index.php?action=accueil">Accueil</a></p>
-					<p><a href="index.php?action=jf">Jean FORTEROCHE</a></p>
-					<p><a href="index.php?action=selection">Selection</a></p>
-					<p><a href="index.php?action=ml">Mentions légales</a></p>
+<div class="empty"></div>	
 
-				</nav>
-			</header>
-		
-<p><a href="index.php">Retour à la liste des billets</a></p>
-
-
-<div class="commentsheet">
-
-	<div class="billets2">
-	
-		<div class="btitle">
-			<h3>
-			Chapter <?= htmlspecialchars($post['id']); ?><br/>
-			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
-			</h3>
-		</div>
-		<div class="posts">
-			<p>
-			<?= htmlspecialchars($post['post']); ?><br/>
-			</p>
-		</div> 
-	</div>
-
-
-
-	<div class='comments'>
-		<div class="ctitle">
-			<h3>Commentaires</h3>
-		</div>
-
-		<div class="content">
-			<?php while($comment = $comments->fetch()): ?>
-				<?php if(!$comment) :?>
-  				<?php echo 'aucun commentaire à afficher';?>
-				<?php endif;?>
-
-			</p>
-			<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
-			<?= htmlspecialchars($comment['content']); ?><br/>
-			
-
-
-			<div class="signalbutton">
-				<em><a href="index.php?action=reportCom&amp;id=<?= $comment['id']; ?>"><input type="button" name="signaler "value="signaler"></a></em>
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<a class="btn btn-info" href="index.php"><span class="glyphicon glyphicon glyphicon-arrow-left"></span>Retour aux chapitres </a>
 			</div>
-
-			<?php endwhile; ?>
+		</div>
+	<div class="chaps">
+		<div class="row">
+			<div class="billetscont">
+				<div class="col-md-10 col-lg-offset-1">
+					<div class="row">
+						<div class="chaptitle">
+							<div class="col-md-12">
+								<h3>
+								Chapter <?= htmlspecialchars($post['id']); ?><br/>
+								<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="chapcontent">
+							<div class="col-md-12">
+								<p>
+								<?= htmlspecialchars($post['post']); ?><br/>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	
-	
-	
-	<div class="form">	
-		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
-
-		   	<div class=formtitle>
-		    	<legend>Ajouter un commentaire</legend> 
-		    </div>
-
-		    <div class=author>
-	       		<label for="auteur">auteur</label><br/>
-	       	</div>
-
-	       		<input type="text" name="author" id="author" /><br/>
-	       	
-
-	       	
-	       	<label for="commentaire">inscrire votre commentaire ici</label><br />
-	       
-	       	<textarea name="content" id="content" rows="10" cols="50"></textarea><br/>
-	       	<div class="newcombutton">
-	       		<input type="submit" value="Envoyer" />
-	       	</div>
-		   
-		</form>
-
-	</div>
-
 </div>
-		
-
-		
+<div class="container">
+	<div class="coms">
+		<div class="row">
+			<div class="comscontent">
+				<div class="col-md-10 col-lg-offset-1">
+					<div class="row">
+						<div class="comtitle">
+							<div class="col-md-6">
+								<h3>Commentaires</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="com">
+							<?php while($comment = $comments->fetch()): ?>
+								<p>
+									<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
+									<?= htmlspecialchars($comment['content']); ?><br/>
+								</p>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="signalbutton">
+											<a class="btn btn-danger btn-xs " href="index.php"><span class="glyphicon glyphicon glyphicon-warning-sign"></span>  signaler  </a>
+										</div>
+									</div>
+								</div>
+							<?php endwhile; ?>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<form class="col-md-10 col-lg-offset-1">
+		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
+		<div class="legendclass">
+  			<legend>Laisser un commentaire</legend>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-2">
+  				<div class=author>
+  					<label for="auteur">auteur : </label>
+  					<input id="author" type="text" name="author" class="form-control">
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-12">
+  				<div class=newcomment>
+  					<label for="Commentaire">Commentaire : </label>
+  					<textarea id="content" type="textarea" name="content" rows="10" cols="50" class="form-control"></textarea>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="col-md-12">
+  				<div class=newcombutton>
+  					<button class="btn btn-primary btn-sm "> Envoi <span class="glyphicon glyphicon glyphicon-ok-sign"></span></button>
+  				</div>
+  			</div>
+  		</div>
+	</form>
+</div>
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 

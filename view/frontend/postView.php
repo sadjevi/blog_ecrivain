@@ -73,8 +73,8 @@
 	</div>
 </div>
 <div class="container">
-	<form class="col-md-10 col-lg-offset-1">
-		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
+	<form class="col-md-10 col-lg-offset-1" action="index.php?action=postComment" method="post">
+		<input type="hidden" name="id" value="<?= $post['id'] ?>"/>
 		<div class="legendclass">
   			<legend>Laisser un commentaire</legend>
   		</div>

@@ -60,7 +60,7 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="signalbutton">
-											<a class="btn btn-danger btn-xs " href="index.php"><span class="glyphicon glyphicon glyphicon-warning-sign"></span>  signaler  </a>
+											<a class="btn btn-link " href="index.php"> signaler </a>
 										</div>
 									</div>
 								</div>
@@ -97,7 +97,7 @@
   		<div class="row">
   			<div class="col-md-12">
   				<div class=newcombutton>
-  					<button class="btn btn-primary btn-sm "> Envoi <span class="glyphicon glyphicon glyphicon-ok-sign"></span></button>
+  					<button class="btn btn-primary btn-sm " input type="submit"> Envoi <span class="glyphicon glyphicon glyphicon-ok-sign"></span></button>
   				</div>
   			</div>
   		</div>

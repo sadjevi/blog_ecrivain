@@ -177,6 +177,7 @@ class BackController
 		
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
+		$button         = "modifier";
 
 		require_once('view/backend/updatePost.php');
 	}

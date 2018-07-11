@@ -198,6 +198,7 @@ nav
 	background-color: white;
     padding: 20px;
     margin-bottom: 70px;
+    text-align: center;
 }
 }
 nav p
@@ -256,6 +257,10 @@ nav a
 .legendclass
 {
 	color: #35A6FF;
+}
+.addbutton span
+{
+	background-color: darkgrey;
 }
 .commentsheet
 {
@@ -378,6 +383,14 @@ nav a
 .newcombutton
 {
 	text-align: center;
+}
+.uppostbutton
+{
+	text-align: center;
+}
+.signalbutton a
+{
+	color: red;
 }
 .comments
 {

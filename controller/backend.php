@@ -137,7 +137,7 @@ class BackController
 	{
 		$postManager    = new PostManager();
 		$lastPosts      = $postManager->getLastPosts();
-		$button 	    = 'enregistrer';
+		$button 	    = ' enregistrer ';
 		$datas['id']    = null;
 		$datas['title'] = null;
 		$datas['post']  = null;
@@ -177,7 +177,7 @@ class BackController
 		
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
-		$button         = "modifier";
+		$button         = ' modifier ';
 
 		require_once('view/backend/updatePost.php');
 	}

@@ -1,17 +1,7 @@
 <?php $title = 'le blog de l ecrivain'; ?> <!-- sheet title here -->
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
-	
-
-<div class="container-fluid">
-	<nav class="row">
-		<div class="col-md-3"><a href="index.php?action=accueil">Accueil</a></div>
-		<div class="col-md-3"><a href="index.php?action=jf">Jean FORTEROCHE</a></div>
-		<div class="col-md-3"><a href="index.php?action=selection">Selection</a></div>
-		<div class="col-md-3"><a href="index.php?action=ml">Mentions légales</a></div>
-	</nav>
-</div>
-			
+				
 </header>
 
 <div class="start">
@@ -26,14 +16,7 @@
 
 </div>
 
-
-<!--<em><a href="index.php?action=listLastPosts">ajouter</a></em>-->
-
-
-		
-
-
-	<div class="container">
+<div class="container">
 	<?php while ($data = $posts->fetch()): ?>
 		<div class="chaps">
 			<div class="row">
@@ -66,7 +49,7 @@
 			</div>
 		</div>
 	<?php endwhile;?>
-	</div>
+</div>
  
 
 
@@ -106,53 +89,9 @@
 <?php endwhile; ?>
 
 <!--- passer la pagination dans un include --->	
-
-<div class="pagination">
-	<?php
-
-	if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
-			{
-		 		$currentsheet = $_GET['sheet'];
-		     	if($currentsheet > $sheetnbr) 
-			    {
-			          $currentsheet = $sheetnbr;
-			    }
-			}
-			else 
-			{
-			     $currentsheet = 1;    
-			}
-
-	echo 'page : ';
-
-	for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
-	{
+<? require('view/frontend/pagination.php'); ?>
 		
-		(isset($_GET['sheet'])) ? $page = $_GET['sheet'] : $page = 1; 
-
-		if(isset($_GET['sheet'])) {
-			$page = $_GET['sheet'] ;
-		} else {
-			$page = 1;
-		};
-
-		if($sheet == $currentsheet)
-		{
-			echo '[ ' . $page . '] ';
-		}
-		
-		else
-		{
-		   echo '<a href="index.php?sheet=' . $sheet . '">' . $sheet . '</a> ';
-		}
-		
-	}
-
-	?>
-</div>
-		
-       
-
+      
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 
 <?php require('template.php'); ?> <!--callin of 'template.php' wich retrieve '$title' & '$content' variables we 've just created -->

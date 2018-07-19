@@ -16,7 +16,20 @@ body
     font-size: 0.9em;
     
 }
+.jfimg 
+{
+	width: 100%;
+}
+.slpics img
+{
+	width: 100%;
+	padding-top: 30px;
+}
 
+.secndrow img
+{
+	width:100%;
+}
 .nouveautitre
 {
 	background-color: white;
@@ -43,6 +56,10 @@ body
 {
 	font-size: 1em;
 
+}
+form legend
+{
+	text-align: center;
 }
 .chaptitle
 {
@@ -254,13 +271,13 @@ nav a
 	background-color: white;
 
 }
-.legendclass
+legend
 {
 	color: #35A6FF;
 }
-.addbutton span
+ .addbutton a 
 {
-	background-color: darkgrey;
+	color: white;
 }
 .commentsheet
 {
@@ -280,6 +297,16 @@ nav a
 
 	
 }
+label
+{
+	font-size: 1.5em;
+}
+
+.uppost
+{
+	padding-bottom: 15px;
+}
+
 .formtitle
 {
 	text-align:center;

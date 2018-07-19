@@ -22,7 +22,7 @@
 		</div>
 		<div class="posts">
 			<p>
-			<?= htmlspecialchars($post['post']); ?><br/>
+			<?= strip_tags($post['post']); ?><br/>
 			</p>
 		</div> 
 	</div>

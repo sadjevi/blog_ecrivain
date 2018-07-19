@@ -1,15 +1,10 @@
 <?php $title = 'mes posts'; ?><!-- sheet title here -->
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->	
-<nav>
-					
-					<p><a href="index.php?action=accueil">Accueil</a></p>
-					<p><a href="index.php?action=jf">Jean FORTEROCHE</a></p>
-					<p><a href="index.php?action=selection">Selection</a></p>
-					<p><a href="index.php?action=ml">Mentions légales</a></p>
 
-				</nav>
-			</header>
+</header>
+
+
 <div class="ml">
 
 	<p style="text-align:center">MENTIONS LEGALES :</p>

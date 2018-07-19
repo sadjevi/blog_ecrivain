@@ -12,7 +12,10 @@ $backController = new BackController();
 
 
 isset($_GET['action']) ? $action = $_GET['action'] : $action = 'listPosts';
-
+if(isset($_GET['id']))
+{
+	$id = $_GET['id'];
+}
 
 
 
@@ -41,9 +44,9 @@ switch ($action)
 	break;
 
 	case 'getEntirePost': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$controller->getEntirePost($_GET['id']); 
+			$controller->getEntirePost($id); 
 		}
 		else 
 		{	
@@ -53,9 +56,9 @@ switch ($action)
 	break;
 
 	case 'post': 
-		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		if(isset($id) && $id > 0) 
 		{
-			$controller->post($_GET['id']); 
+			$controller->post($id); 
 		}
 		else 
 		{
@@ -65,11 +68,11 @@ switch ($action)
 
 
 	case 'postComment': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)
+		if(isset($id) && $id > 0)
 		{
 			if(!empty ($_POST['author']) && !empty ($_POST['content']))
 			{
-				$controller->postComment($_GET['id'], $_POST['author'], $_POST['content']);
+				$controller->postComment($id, $_POST['author'], $_POST['content']);
 			}
 			else 
 			{
@@ -83,9 +86,9 @@ switch ($action)
 	break;
 
 	case 'reportCom': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$controller->reportCom($_GET['id']); 
+			$controller->reportCom($id); 
 		}
 		else 
 		{
@@ -129,9 +132,9 @@ switch ($action)
 	break;
 
 	case 'adminPost': 
-		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		if(isset($id) && $id > 0) 
 		{
-			$backController->adminPost($_GET['id']); 
+			$backController->adminPost($id); 
 		}
 		else 
 		{
@@ -141,9 +144,9 @@ switch ($action)
 
 
 	case 'adminPostRep': 
-		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		if(isset($id) && $id > 0) 
 		{
-			$backController->adminPostRep($_GET['id']); 
+			$backController->adminPostRep($id); 
 		}
 		else 
 		{
@@ -168,9 +171,9 @@ switch ($action)
 
 
 	case 'toupdtPost': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$backController->toupdtPost($_GET['id']); 
+			$backController->toupdtPost($id); 
 		}
 		else 
 		{
@@ -179,9 +182,9 @@ switch ($action)
 	break;
 
 	case 'approveCom': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$backController->approveCom($_GET['id']); 
+			$backController->approveCom($id); 
 		}
 		else 
 		{
@@ -201,9 +204,9 @@ switch ($action)
 
 
 	case 'todltPost': 
-		if(isset($_GET['id']) && $_GET['id'] > 0) 
+		if(isset($id) && $id > 0) 
 		{
-			$backController->todltPost($_GET['id']); 
+			$backController->todltPost($id); 
 		}
 		else 
 		{
@@ -213,9 +216,9 @@ switch ($action)
 
 
 	case 'deletePost': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$backController->deletePost($_GET['id']);
+			$backController->deletePost($id);
 		}
 			else 
 		{
@@ -225,9 +228,9 @@ switch ($action)
 
 
 	case 'deleteComment': 
-		if(isset($_GET['id']) && $_GET['id'] > 0)  
+		if(isset($id) && $id > 0)  
 		{
-			$backController->deleteComment($_GET['id']);
+			$backController->deleteComment($id);
 		}
 			else 
 		{

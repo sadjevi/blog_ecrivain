@@ -37,7 +37,7 @@
 	</p>
 
 	<div class="addbutton">
-		<em><a class="btn btn-secondary" href="index.php?action=listLastPosts"><span class="glyphicon glyphicon glyphicon-plus"></span> Création d'un nouveau billet </a><em>
+		<em><a class="btn btn-default" href="index.php?action=listLastPosts" style="background-color: #211f1f96" "color: white"><span class="glyphicon glyphicon glyphicon-plus"></span> Création d'un nouveau billet </a><em>
 	</div>
 </div>
 
@@ -63,7 +63,7 @@
 									<p>
 									<?= htmlspecialchars(substr($data['post'], 1, 300)); ?> ... <br/>
 									<div class="suitebutton">
-										<a class="btn btn-primary" href="index.php?action=getEntirePost&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+										<a class="btn btn-primary" href="index.php?action=adminPostRep&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
 									</div>
 								</div>
 							</div>
@@ -74,11 +74,11 @@
 			<div class="row">
 				<div class="buttons">
 					<div class="updtbutton">
-						<div class="col-md-3"><a class="btn btn-info" href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"> Modifier <span class="glyphicon glyphicon glyphicon-pencil"></span></a>
+						<div class="col-sm-3"><a class="btn btn-info" href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"> Modifier <span class="glyphicon glyphicon glyphicon-pencil"></span></a>
 						</div>
 					</div>
 						<div class="delbutton">
-							<div class="col-md-offset-6 col-md-3"><a class="btn btn-danger" href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"> Supprimer <span class="glyphicon glyphicon glyphicon-remove"></span></a>
+							<div class="col-sm-offset-6 col-sm-3"><a class="btn btn-danger" href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"> Supprimer <span class="glyphicon glyphicon glyphicon-remove"></span></a>
 						</div>
 					</div>
 				</div>
@@ -132,7 +132,51 @@
 
 <?php endwhile; ?>
 
-<? require('view/frontend/pagination.php'); ?>
+<div class="pagination">
+	<?php
+
+	if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
+			{
+		 		$currentsheet = $_GET['sheet'];
+		     	if($currentsheet > $sheetnbr) 
+			    {
+			          $currentsheet = $sheetnbr;
+			    }
+			}
+			else 
+			{
+			     $currentsheet = 1;    
+			}
+
+	echo 'page : ';
+
+	for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
+	{
+		
+		(isset($_GET['sheet'])) ? $page = $_GET['sheet'] : $page = 1; 
+
+		if(isset($_GET['sheet'])) {
+			$page = $_GET['sheet'] ;
+		} else {
+			$page = 1;
+		};
+
+		if($sheet == $currentsheet)
+		{
+			echo '[ ' . $page . '] ';
+		}
+		
+		else
+		{
+		   echo '<a href="index.php?action=adminListPosts&amp;sheet=' . $sheet . '">' . $sheet . '</a> ';
+		}
+		
+	}
+
+	?>
+</div>
+
+
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 

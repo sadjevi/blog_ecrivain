@@ -138,7 +138,7 @@ class PostManager extends BddManager
 		$title = $datas['title'];
 		$post  = $datas['post'];
 
-		if ($datas['id'] == null)
+		if ($datas['id'] == null && $this->checkifsafe($post) == false)
 		{
 			$this->addPost($title, $post);
 		}
@@ -148,7 +148,26 @@ class PostManager extends BddManager
 		}
 		
 	}
+
+	/**
+	*
+	* method to check if there is script in a string
+	*@params $string
+	*/
+
+	public function checkifsafe($string)
+	{
+		if(preg_match("#<script>#", $string))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	
+
 	
 }
 

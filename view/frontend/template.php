@@ -12,12 +12,12 @@
 			<header>
 				<div class="container-fluid">
 				    <div class="row">
-				    	<div class="col-md-12">   		 
+				    	<div class="col-sm-12">   		 
 				 			<div class="fimg"><img src="public/images/rainbow.jpg" alt="banniere">		
-				    		<div class="col-md-12">
+				    		<div class="col-sm-12">
 				    			<div class="nouveautitre">
-									<div class="col-md-12"><h1>UN BILLET SIMPLE POUR L'ALASKA</h1></div>
-									<div class="col-md-12"><h2>by Jean Forteroche</h2></div>
+									<div class="col-sm-12"><h1>UN BILLET SIMPLE POUR L'ALASKA</h1></div>
+									<div class="col-sm-12"><h2>by Jean Forteroche</h2></div>
 								</div>
 							</div>
 							</div>	
@@ -26,10 +26,10 @@
 			    </div>
 			    <div class="container-fluid">
 					<nav class="row">
-						<div class="col-md-3"><a href="index.php?action=accueil">Accueil</a></div>
-						<div class="col-md-3"><a href="index.php?action=jf">Jean FORTEROCHE</a></div>
-						<div class="col-md-3"><a href="index.php?action=selection">Selection</a></div>
-						<div class="col-md-3"><a href="index.php?action=ml">Mentions légales</a></div>
+						<div class="col-sm-3"><a href="index.php?action=accueil">Accueil</a></div>
+						<div class="col-sm-3"><a href="index.php?action=jf">Jean FORTEROCHE</a></div>
+						<div class="col-sm-3"><a href="index.php?action=selection">Selection</a></div>
+						<div class="col-sm-3"><a href="index.php?action=ml">Mentions légales</a></div>
 					</nav>
 				</div>			
 			</header>

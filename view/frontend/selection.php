@@ -1,29 +1,28 @@
 <?php $title = 'mes posts'; ?><!-- sheet title here -->
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->	
-<nav>
-					
-					<p><a href="index.php?action=accueil">Accueil</a></p>
-					<p><a href="index.php?action=jf">Jean FORTEROCHE</a></p>
-					<p><a href="index.php?action=selection">Selection</a></p>
-					<p><a href="index.php?action=ml">Mentions légales</a></p>
 
-				</nav>
-			</header>
-<div class="slpics">
-	
-	<div class="firstrow">
-		<p><img src="public/images/sel1.jpg" alt="Jean Forteroche" /></p>
-		<p><img src="public/images/sel2.jpg" alt="Jean Forteroche" /></p>
-		<p><img src="public/images/sel3.jpg" alt="Jean Forteroche" /></p>
+</header>
+
+<div class="start">
+
+	<h2>Quelques clichés</h2>
+	<p>
+	Une selection de photos prises durant mon séjour .....
+	</p>
+
+</div>
+<div class="container">
+	<div class="row">
+		<div class="slpics">
+			<div class="col-md-4"><img src="public/images/sel1.jpg" alt="alaska 1" /></div>
+			<div class="col-md-4"><img src="public/images/sel2.jpg" alt="alaska 2" /></div>
+			<div class="col-md-4"><img src="public/images/sel3.jpg" alt="alaska 3" /></div>
+			<div class="col-md-4"><img src="public/images/sel4.jpg" alt="alaska 4" /></div>
+			<div class="col-md-4"><img src="public/images/sel5.jpg" alt="alaska 5" /></div>
+			<div class="col-md-4"><img src="public/images/sel6.jpg" alt="alaska 6" /></div>
+		</div>
 	</div>
-
-	<div class="secndrow">
-		<p><img src="public/images/sel4.jpg" alt="Jean Forteroche" /></p>
-		<p><img src="public/images/sel5.jpg" alt="Jean Forteroche" /></p>
-		<p><img src="public/images/sel6.jpg" alt="Jean Forteroche" /></p>
-	</div>
-
 </div>
 
 			

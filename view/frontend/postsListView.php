@@ -3,6 +3,7 @@
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->
 				
 </header>
+<? $banniere = true ; ?>
 
 <div class="start">
 

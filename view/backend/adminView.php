@@ -61,9 +61,9 @@
 							<div class="chapcontent">
 								<div class="col-md-12">
 									<p>
-									<?= htmlspecialchars(substr($data['post'], 1, 300)); ?> ... <br/>
+									<?= substr($data['post'], 1, 300); ?> ... <br/>
 									<div class="suitebutton">
-										<a class="btn btn-primary" href="index.php?action=adminPostRep&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+										<a class="btn btn-primary" href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
 									</div>
 								</div>
 							</div>
@@ -88,49 +88,6 @@
 	<?php endwhile;?>
 
 </div>
-
-	
-
-
-
-
-
-		
-
-<?php while ($data = $posts->fetch()): ?>
-
-
-	<div class="billets">
-		<div class="btitle">
-			<h3>
-			Chapter <?= htmlspecialchars($data['id']); ?><br/>
-			<?= htmlspecialchars($data['title']); ?><br/><em> le <?= $data['creation_date_fr']; ?></em>
-			</h3>
-		</div>
-		<div class="posts">
-			<p>
-			<?= htmlspecialchars($data['post']); ?><br/> 
-			</p>
-		</div>
-		<div class="combutton">
-			<p>
-			<em><a href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Commentaires"value="Commentaires"></a></em><br/>
-			</p>
-		</div>
-
-		<div class="updtbutton">
-			<p>
-			<a href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Modifier"value="Modifier"></a><br/>
-			</p>
-		</div>
-		<div class="delbutton">
-			<p>
-			<a href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"><input type="button" name="Supprimer"value="Supprimer"></a><br/>
-			</p>
-		</div>
-	</div>
-
-<?php endwhile; ?>
 
 <div class="pagination">
 	<?php

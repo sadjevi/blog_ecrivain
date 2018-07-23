@@ -4,87 +4,70 @@
 
 <? require_once('session_verif.php') ?>
 
+<div class="empty"></div>
 
-
-		
-<p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
-
-
-<div class="commentsheet">
-
-	<div class="billets2">
-	
-		<div class="btitle">
-			<h3>
-			Chapter <?= htmlspecialchars($post['id']); ?><br/>
-			<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
-			</h3>
+<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<a class="btn btn-info" href="index.php?action=adminListPosts"><span class="glyphicon glyphicon glyphicon-arrow-left"></span>Retour aux chapitres </a>
+			</div>
 		</div>
-		<div class="posts">
-			<p>
-			<?= strip_tags($post['post']); ?><br/>
-			</p>
-		</div> 
+	<div class="chaps">
+		<div class="row">
+			<div class="billetscont">
+				<div class="col-md-10 col-lg-offset-1">
+					<div class="row">
+						<div class="chaptitle">
+							<div class="col-md-12">
+								<h3>
+								Chapter <?= htmlspecialchars($post['id']); ?><br/>
+								<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="chapcontent">
+							<div class="col-md-12">
+								<p>
+								<?= htmlspecialchars($post['post']); ?> ... <br/>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-	
-
-	
-	
-	
-	<div class="form">	
-		<form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
-
-		   	<div class=formtitle>
-		    	<legend>Ajouter un commentaire</legend> 
-		    </div>
-
-		    <div class=author>
-	       		<label for="auteur">auteur</label><br/>
-	       	</div>
-
-	       		<input type="text" name="author" id="author" /><br/>
-	       	
-
-	       	
-	       	<label for="commentaire">inscrire votre commentaire ici</label><br />
-	       
-	       	<textarea name="content" id="content" rows="10" cols="50"></textarea><br/>
-	       	<input type="submit" value="Envoyer" />
-		   
-		</form>
-
+</div>
+<div class="container">
+	<div class="coms">
+		<div class="row">
+			<div class="comscontent">
+				<div class="col-md-10 col-lg-offset-1">
+					<div class="row">
+						<div class="comtitle">
+							<div class="col-md-6">
+								<h3>Commentaires</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="com">
+							<?php while($comment = $comments->fetch()): ?>
+								<p>
+									<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
+									<?= htmlspecialchars($comment['content']); ?><br/>
+								</p>	
+							<?php endwhile; ?>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
-				
-
-
-       
-   </p>
-
-<div class='comments'>
-	<div class="ctitle">
-		<h3>Commentaires</h3>
-	</div>
-
-	<div class="content">
-		<?php while($comment = $comments->fetch()): ?>
-
-		</p>
-		<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
-		<?= htmlspecialchars($comment['content']); ?><br/>
-		
-
-
-		<em><a href="index.php?action=deleteComment&amp;id=<?= $comment['id']; ?>"><input type="button" name="suppimer "value="supprimer"></a></em>
-
-		<?php endwhile; ?>
-	</div>
-</div>
-		
-
-		
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 

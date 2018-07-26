@@ -12,10 +12,7 @@ $backController = new BackController();
 
 
 isset($_GET['action']) ? $action = $_GET['action'] : $action = 'listPosts';
-if(isset($_GET['id']))
-{
-	$id = $_GET['id'];
-}
+if(isset($_GET['id'])) $id = $_GET['id'];
 
 
 

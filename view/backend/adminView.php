@@ -61,7 +61,7 @@
 							<div class="chapcontent">
 								<div class="col-md-12">
 									<p>
-									<?= substr($data['post'], 1, 300); ?> ... <br/>
+									<?= substr($data['post'], 0, 300); ?> ... <br/>
 									<div class="suitebutton">
 										<a class="btn btn-primary" href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
 									</div>

@@ -22,12 +22,17 @@ body
 }
 .jfimg img
 {
-	max-width: 100%;
-    height: 530px;
+	width: 100%;
+	vertical-align:baseline;
+    
+}
+.firstelement
+{
+	align-items: stretch;
 }
 .jfpr p
 {
-	font-size: 2em;
+	font-size: 2.2em;
 }
 .slpics img
 {

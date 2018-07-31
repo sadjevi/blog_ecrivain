@@ -34,7 +34,7 @@
 			  			<div class="col-md-12">
 			  				<div class=uppost>
 			  					<label for="post"> Contenu du billet : </label>
-			  					<textarea id="post" name="datas[post]" rows="10" cols="50" class="tinymce"><?=htmlspecialchars($datas['post']);?></textarea>
+			  					<textarea id="post" name="datas[post]" rows="10" cols="50" class="tinymce"><?=$datas['post'];?></textarea>
 			  				</div>
 			  			</div>
 			  		</div>

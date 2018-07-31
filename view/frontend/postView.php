@@ -28,7 +28,7 @@
 						<div class="chapcontent">
 							<div class="col-md-12">
 								<p>
-								<?= htmlspecialchars($post['post']); ?><br/>
+								<?= $post['post']; ?><br/>
 								</p>
 							</div>
 						</div>
@@ -53,6 +53,7 @@
 					<div class="row">
 						<div class="com">
 							<?php while($comment = $comments->fetch()): ?>
+								
 								<p>
 									<strong><?= htmlspecialchars($comment['author']); ?></strong><em> le <?= $comment['created_date_fr']; ?></em><br/>
 									<?= htmlspecialchars($comment['content']); ?><br/>

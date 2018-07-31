@@ -30,7 +30,7 @@
 						<div class="chapcontent">
 							<div class="col-md-12">
 								<p>
-								<?= htmlspecialchars($post['post']); ?> ... <br/>
+								<?= $post['post']; ?> ... <br/>
 								</p>
 							</div>
 						</div>

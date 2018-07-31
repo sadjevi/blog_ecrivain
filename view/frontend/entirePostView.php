@@ -30,7 +30,7 @@
 						<div class="chapcontent">
 							<div class="col-md-12">
 								<p>
-								<?= htmlspecialchars($post['post']); ?> ... <br/>
+								<?= $post['post']; ?> ... <br/>
 								<div class="combutton">
 									<a class="btn btn-primary" href="index.php?action=post&amp;id=<?= $post['id']; ?>"><span class="glyphicon glyphicon glyphicon-comment"></span> Commentaires </a>
 								</div>

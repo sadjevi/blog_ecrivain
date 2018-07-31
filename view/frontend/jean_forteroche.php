@@ -6,18 +6,20 @@
 
 <div class="empty"></div>
 
-<div class="container">
-	<div class="row">		
-		<div class="col-sm-5">
-			<div class= "jfimg">
-				<img src="public/images/jf.jpg" alt="Jean Forteroche" />
+<div class="container fluid">
+	<div class="firstelement">
+		<div class="row">		
+			<div class="col-xs-5">
+				<div class= "jfimg">
+					<p><img src="public/images/jf.jpg" alt="Jean Forteroche" />
+				</div>
 			</div>
-		</div>
-		<div class="col-sm-7">
-			<div class="jfpr">
-				<p>
-					Auteur de recueils de nouvelles et de romans, Jean FORTEROCHE possède, outre ses nombreuses publications littéraires, un parcours aux avenues multiples. Né à Montréal en 1933, il est engagé, dans les années soixante, comme réalisateur à Radio-Canada, poste qu’il occupera jusqu’en 1992. Il anime également des émissions de jazz et de littérature et participe à l’émission CBF Bonjour de 1988 à 1997 en tant que chroniqueur radiophonique aux côtés de l’animateur Joël Le Bigot. Il signe plusieurs textes pour les quotidiens Le Devoir et La Presse, de même que pour les périodiques L’Actualité, Liberté, Cité libre et Le Livre d’ici. Avec Jacques Brault et François Ricard, il fonde les Éditions du Sentier en 1978. Reconnu pour son travail d’écrivain et d’éditeur, Gilles Archambault signe un oeuvre considérable marquée par la  mélancolie, la simplicité et la sensibilité.
-				</p>
+			<div class="col-xs-7">
+				<div class="jfpr">
+					<p>
+						Auteur de recueils de nouvelles et de romans, Jean FORTEROCHE possède, outre ses nombreuses publications littéraires, un parcours aux avenues multiples. Né à Montréal en 1933, il est engagé, dans les années soixante, comme réalisateur à Radio-Canada, poste qu’il occupera jusqu’en 1992. Il anime également des émissions de jazz et de littérature et participe à l’émission CBF Bonjour de 1988 à 1997 en tant que chroniqueur radiophonique aux côtés de l’animateur Joël Le Bigot. Il signe plusieurs textes pour les quotidiens Le Devoir et La Presse, de même que pour les périodiques L’Actualité, Liberté, Cité libre et Le Livre d’ici. Avec Jacques Brault et François Ricard, il fonde les Éditions du Sentier en 1978. Reconnu pour son travail d’écrivain et d’éditeur, Gilles Archambault signe un oeuvre considérable marquée par la  mélancolie, la simplicité et la sensibilité.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>

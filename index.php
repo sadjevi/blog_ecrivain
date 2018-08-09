@@ -11,11 +11,16 @@ $controller = new Frontend();
 $backController = new BackController();
 
 
+<<<<<<< HEAD
 isset($_GET['action']) ? $action = $_GET['action'] : $action = 'listPosts';
 if(isset($_GET['id']))
 {
 	$id = $_GET['id'];
 }
+=======
+
+(isset($_GET['action'])) ? $action = $_GET['action'] : $action = 'listPosts';
+>>>>>>> parent of ce2b364... backend bootstrapping
 
 
 

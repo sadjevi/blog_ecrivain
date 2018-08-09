@@ -234,7 +234,6 @@ nav
 	background-color: white;
     padding: 20px;
     margin-bottom: 70px;
-    text-align: center;
 }
 }
 nav p
@@ -294,10 +293,13 @@ legend
 {
 	color: #35A6FF;
 }
+<<<<<<< HEAD
  .addbutton a 
 {
 	color: white;
 }
+=======
+>>>>>>> parent of ce2b364... backend bootstrapping
 .commentsheet
 {
 
@@ -434,14 +436,6 @@ label
 .newcombutton
 {
 	text-align: center;
-}
-.uppostbutton
-{
-	text-align: center;
-}
-.signalbutton a
-{
-	color: red;
 }
 .comments
 {

@@ -61,7 +61,11 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="signalbutton">
+<<<<<<< HEAD
 											<a class="btn btn-link " href="index.php?action=reportCom&amp;id=<?= $comment['id']; ?>"> signaler </a>
+=======
+											<a class="btn btn-danger btn-xs " href="index.php"><span class="glyphicon glyphicon glyphicon-warning-sign"></span>  signaler  </a>
+>>>>>>> parent of ce2b364... backend bootstrapping
 										</div>
 									</div>
 								</div>
@@ -97,7 +101,7 @@
   		<div class="row">
   			<div class="col-md-12">
   				<div class=newcombutton>
-  					<button class="btn btn-primary btn-sm " input type="submit"> Envoi <span class="glyphicon glyphicon glyphicon-ok-sign"></span></button>
+  					<button class="btn btn-primary btn-sm "> Envoi <span class="glyphicon glyphicon glyphicon-ok-sign"></span></button>
   				</div>
   			</div>
   		</div>

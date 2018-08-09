@@ -177,7 +177,10 @@ class BackController
 		
 		$postManager    = new PostManager();
 		$post           = $postManager->getPost($id);
+<<<<<<< HEAD
 		$button         = ' modifier ';
+=======
+>>>>>>> parent of ce2b364... backend bootstrapping
 
 		require_once('view/backend/updatePost.php');
 	}

@@ -2,9 +2,11 @@
 
 <?php ob_start(); ?>  <!-- storing following HTML code with 'ob_start' function-->		
 
+
 <? require_once('session_verif.php') ?>
 
 
+<<<<<<< HEAD
 <div class="empty"></div>
 
 
@@ -40,25 +42,46 @@
 				</div>
 			</div>
 		</div>
+=======
+
+
+
+<p><a href="index.php?action=adminListPosts">Retour à la liste des billets</a></p>
+
+
+<div class="billets">
+	<div class="btitle">
+		<h3>
+		Chapter <?= htmlspecialchars($post['id']); ?><br/>
+		<?= htmlspecialchars($post['title']); ?><br/><em> le <?= $post['creation_date_fr']; ?></em>
+		</h3>
+>>>>>>> parent of ce2b364... backend bootstrapping
 	</div>
+	<div class="posts">
+		<p>
+		<?= htmlspecialchars($post['post']); ?><br/>
+		</p>
+	
+	</div> 
 </div>
 
-<div class="container">
-	<div class="col-md-10 col-lg-offset-1">
-		<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
-			<div class="legendclass">
-	  			<legend>Action définitive ,êtes-vous sûr de bien vouloir supprimer ce billet</legend>
-	  		</div>
-	  		<div class="row">
-	  			<div class="col-md-12">
-	  				<div class=delete>
-	  					<button class="btn btn-danger btn-sm " input type="submit"><span class="glyphicon glyphicon glyphicon-remove"></span> oui je souhaite définitivement supprimer </button>
-	  				</div>
-	  			</div>
-	  		</div>
-		</form>
-	</div>
+<div class="form2">	
+
+	<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="post">
+
+	   	<div class=formtitle2>
+	    	<legend>êtes vous bien sur de vouloir supprimer ce billet?</legend> 
+	    </div>
+
+	    <div class=delete>
+       		<input type="submit" value="Oui je souhaite definitivement supprimmer ce billet" />
+       	</div>		       				       		      
+	   
+	</form>
+
 </div>
+
+
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 

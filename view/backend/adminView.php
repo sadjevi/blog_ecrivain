@@ -37,7 +37,14 @@
 	</p>
 
 	<div class="addbutton">
+<<<<<<< HEAD
 		<em><a class="btn btn-default" href="index.php?action=listLastPosts" style="background-color: #211f1f96" "color: white"><span class="glyphicon glyphicon glyphicon-plus"></span> Création d'un nouveau billet </a><em>
+=======
+		<p>
+		<em><a href="index.php?action=listLastPosts"><input type="button" name="Création d'un nouvel article"value="Création d'un nouvel article"></a></em><br/>
+		</p>
+
+>>>>>>> parent of ce2b364... backend bootstrapping
 	</div>
 </div>
 
@@ -46,7 +53,7 @@
 		<div class="chaps">
 			<div class="row">
 				<div class="billetscont">
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-6 col-lg-offset-3">
 						<div class="row">
 							<div class="chaptitle">
 								<div class="col-md-12">
@@ -65,12 +72,19 @@
 									<div class="suitebutton">
 										<a class="btn btn-primary" href="index.php?action=adminPost&amp;id=<?= $data['id']; ?>">lire la suite <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
 									</div>
+									<div class="updtbutton">
+										<a class="btn btn-dark" href="index.php?action=toupdtPost&amp;id=<?= $data['id']; ?>"> Modifier <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+									</div>
+									<div class="delbutton">
+										<a class="btn btn-danger" href="index.php?action=todltPost&amp;id=<?= $data['id']; ?>"> Supprimer <span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div class="row">
 				<div class="buttons">
 					<div class="updtbutton">
@@ -83,10 +97,10 @@
 					</div>
 				</div>
 			</div>
+=======
+>>>>>>> parent of ce2b364... backend bootstrapping
 		</div>
-		
 	<?php endwhile;?>
-
 </div>
 
 <div class="pagination">
@@ -134,6 +148,51 @@
 </div>
 
 
+<<<<<<< HEAD
+=======
+<?php
+
+if(isset($_GET['sheet']) && $_GET['sheet'] > 0) 
+		{
+	 		$currentsheet = $_GET['sheet'];
+	     	if($currentsheet > $sheetnbr) 
+		    {
+		          $currentsheet = $sheetnbr;
+		    }
+		}
+		else 
+		{
+		     $currentsheet = 1;    
+		}
+
+echo 'page : ';
+
+for ($sheet = 1 ; $sheet <= $sheetnbr ; $sheet++)
+{
+	(isset($_GET['sheet'])) ? $page = $_GET['sheet'] : $page = 1; 
+
+	if(isset($_GET['sheet'])) {
+		$page = $_GET['sheet'] ;
+	} else {
+		$page = 1;
+	};
+
+	if($sheet == $currentsheet)
+	{
+		echo '[ ' . $page . '] ';
+	}
+	
+	else
+	{
+	   echo '<a href="index.php?action=adminListPosts&amp; sheet=' . $sheet . '">' . $sheet . '</a> ';
+	}
+	
+}
+
+?>
+		
+       
+>>>>>>> parent of ce2b364... backend bootstrapping
 
 <?php $content = ob_get_clean(); ?> <!-- retrieve the previous memorized HTML code with 'ob_get_clean'function & and storing it inside '$content' variable -->
 

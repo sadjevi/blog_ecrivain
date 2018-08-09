@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('params.php');
 
 require('controller/frontend.php'); 
 require('controller/backend.php'); 
@@ -101,6 +101,7 @@ switch ($action)
 
 
 													// backend
+
 
 
 	case 'adminListPosts':

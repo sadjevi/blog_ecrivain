@@ -148,6 +148,26 @@ class PostManager extends BddManager
 		}
 		
 	}
+
+	/**
+	*
+	* method to check if there is script in a string
+	*@params $string
+	*/
+
+	public function checkifsafe($string)
+	{
+		if(preg_match("#<script>#", $string))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+
 	
 }
 

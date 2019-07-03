@@ -52,6 +52,9 @@
 					</div>
 					<div class="row">
 						<div class="com">
+							<?php if(!$comments):?>
+								pas de commentaires
+							<?php endif;?>
 							<?php while($comment = $comments->fetch()): ?>
 								
 								<p>
